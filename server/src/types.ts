@@ -6,3 +6,6 @@ const recipeWithIngredients = Prisma.validator<Prisma.RecipeDefaultArgs>()({
   })
 
 export type RecipeWithIngredients = Prisma.RecipeGetPayload<typeof recipeWithIngredients>;
+
+// Recipe with ingredients but without id
+export type RecipeWithIngredientsWithoutId = Omit<RecipeWithIngredients, "id">;

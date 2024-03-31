@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
-import { RecipeWithIngredients } from '../types';
+import { RecipeWithIngredients, RecipeWithIngredientsWithoutId } from '../types';
 
 const prisma = new PrismaClient();
 
 export class RecipeRepository{
     // Create a new recipe
-    public async createRecipe({ name, ingredients }: RecipeWithIngredients) : Promise<RecipeWithIngredients>
+    public async createRecipe({ name, ingredients }: RecipeWithIngredientsWithoutId) : Promise<RecipeWithIngredients>
     {
         const newRecipe = await prisma.recipe.create({
             data: {

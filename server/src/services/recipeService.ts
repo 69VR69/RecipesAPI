@@ -8,9 +8,9 @@ export class RecipeService {
 
     // Create a new recipe
     async createRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { name, ingredients } = req.body;
+        const { name, ingredients }: RecipeWithIngredients = req.body;
         try {
-            const newRecipe = null// await recipeRepository.createRecipe({ name, ingredients });
+            const newRecipe = await recipeRepository.createRecipe({ name, ingredients });
             res.status(201).json(newRecipe)
         }
         catch (error : any) {
