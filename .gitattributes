@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
+# Auto detect text files and perform CRLF normalization
 * text=auto
+
+# Custom for ts files
+*.ts text eol=crlf
+*.tsx text eol=crlf
