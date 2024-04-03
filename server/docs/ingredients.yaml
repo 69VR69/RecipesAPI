@@ -191,21 +191,6 @@ components:
           type : string 
           example : "hiver"
           enum: ["hiver", "printemps", "ete", "autone"]
-        ingredients:
-          required:
-            - ingredient
-            - quantity
-          type: array
-          items:
-            type: object
-            properties:
-              ingredient:
-                type: integer
-                format: int64
-                example: 10
-              quantity:
-                type: integer
-                example: 5
   requestBodies:
     Recipe:
       description: Pet object that needs to be added to the store
