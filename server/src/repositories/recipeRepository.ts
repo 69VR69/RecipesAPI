@@ -4,10 +4,9 @@ import { RecipeWithIngredients, RecipeWithIngredientsWithoutId } from '../types'
 
 const prisma = new PrismaClient();
 
-export class RecipeRepository{
+export class RecipeRepository {
     // Create a new recipe
-    public async createRecipe({ name, ingredients }: RecipeWithIngredientsWithoutId) : Promise<RecipeWithIngredients>
-    {
+    public async createRecipe({ name, ingredients }: RecipeWithIngredientsWithoutId): Promise<RecipeWithIngredients> {
         const newRecipe = await prisma.recipe.create({
             data: {
                 name,
@@ -92,5 +91,27 @@ export class RecipeRepository{
             }
         });
         res.json(deletedRecipe);
+    }
+
+    // Cook a recipe, consuming corresponding ingredients in the process
+    async cookRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+        const { id } = req.params;
+        const cookedRecipe = await prisma.recipe.findUnique({
+            where: {
+                id: id
+            },
+            include: {
+                ingredients: true
+            }
+        });
+
+        // TODO update ingredients quantity once recipe is cooked
+        // await prisma.ingredient.update({
+        //     where: {
+        //         id: cookedRecipe.ingredients.qty
+        //     }
+        // });
+
+        res.json(cookedRecipe);
     }
 }
