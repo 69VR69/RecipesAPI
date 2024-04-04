@@ -1,21 +1,17 @@
-import { useState } from "react";
-
-export function QuantitySelector()
-{
-    const [counter, setCounter] = useState(1);
+export function QuantitySelector({ nbPersons, setNbPersons }: { nbPersons: number, setNbPersons: (nbPersons: number) => void }) {
 
     function increment() {
-        setCounter(counter + 1);
+        setNbPersons(nbPersons + 1);
     }
 
     function decrement() {
-        setCounter(counter - 1);
+        setNbPersons(nbPersons - 1);
     }
 
     return (
         <>
             <button onClick={decrement}>-</button>
-            <span>{counter} personnes</span>
+            <span>{nbPersons} personnes</span>
             <button onClick={increment}>+</button>
         </>
     );

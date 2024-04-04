@@ -5,6 +5,7 @@ import './index.css';
 import { RecipeBrowse } from './pages/RecipeBrowse';
 import { RecipeManage } from './pages/RecipeManage';
 import { Home } from './pages/Home';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter(
   [
@@ -25,8 +26,12 @@ const router = createBrowserRouter(
   ],
 );
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <QueryClientProvider  client={queryClient}> 
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    </QueryClientProvider>
+  </React.StrictMode>
+);
