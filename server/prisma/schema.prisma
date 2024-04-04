@@ -14,6 +14,7 @@ datasource db {
 model Recipe {
   id        Int      @id @default(autoincrement())
   name     String
+  ingredient RecipeIngredients[]
 }
 
 model Ingredient {
@@ -21,16 +22,17 @@ model Ingredient {
   name      String
   category  String
   season    Int
+  reciep RecipeIngredients[]
 }
 
-// model RecipeIngredients{
-//   ingredient Int
-//   reciep Int
-//   number Int 
+model RecipeIngredients{
+  ingredient Int
+  reciep Int
+  number Int 
 
-//   @@id([ingredient,reciep])
-//   ingredientRelation Ingredient @relation(fields: [ingredient],references: [id] )
-//   reciepRelation Recipe @relation(fields: [reciep],references: [id] )
-// }
+  @@id([ingredient,reciep])
+  ingredientRelation Ingredient @relation(fields: [ingredient],references: [id] )
+  reciepRelation Recipe @relation(fields: [reciep],references: [id] )
+}
 
 
