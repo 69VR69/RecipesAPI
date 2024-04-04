@@ -17,13 +17,15 @@ export function RecipeList()
 
     if (error) return <div>Error: {error.name + " : " + error.message + "\n" + error.stack}</div>;
 
+
+
     return (
         <div>
             <h1>Recettes</h1>
             <ul>
-                {data.map((recipe: Recipe) => (
+                {/* {data.map((recipe: Recipe) => (
                     <li key={recipe.id}>{recipe.name}</li>
-                ))}
+                ))} */}
             </ul>
         </div>
     );
