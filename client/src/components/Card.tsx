@@ -1,4 +1,5 @@
 import { Ingredient, Season } from "../models/Ingredient";
+import { ButtonRedirect } from "./Button";
 
 export function Card({children}: {children: React.ReactNode}) {
     return (
@@ -6,6 +7,16 @@ export function Card({children}: {children: React.ReactNode}) {
             <h2>Card</h2>
             {children}
         </div>
+    );
+}
+
+export function RecipeCard({name, id}: {name: string, id: number})
+{
+    return (
+        <Card>
+            <h3>{name}</h3>
+            <ButtonRedirect path={`/recipes/${id}`}>Voir la recette</ButtonRedirect>
+        </Card>
     );
 }
 
