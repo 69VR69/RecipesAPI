@@ -6,16 +6,16 @@ const prisma = new PrismaClient();
 
 export class RecipeRepository {
     // Create a new recipe
-    public async createRecipe({ name, ingredients }: RecipeWithIngredientsWithoutId): Promise<RecipeWithIngredients> {
+    public async createRecipe({ name, ingredient }: RecipeWithIngredientsWithoutId): Promise<RecipeWithIngredients> {
         const newRecipe = await prisma.recipe.create({
             data: {
                 name,
-                ingredients: {
-                    create: ingredients
+                ingredient: {
+                    create: ingredient
                 }
             },
             include: {
-                ingredients: true
+                ingredient: true
             }
         });
 
@@ -26,7 +26,7 @@ export class RecipeRepository {
     async getRecipes(req: Request<RecipeWithIngredients>, res: Response) {
         const recipes = await prisma.recipe.findMany({
             include: {
-                ingredients: true
+                ingredient: true
             }
         });
         res.json(recipes);
@@ -34,13 +34,13 @@ export class RecipeRepository {
 
     // Get a single recipe
     async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+        const { id } : {id : number} = req.params;
         const recipe = await prisma.recipe.findUnique({
             where: {
                 id: id
             },
             include: {
-                ingredients: true
+                ingredient: true
             }
         });
         res.json(recipe);
@@ -56,7 +56,7 @@ export class RecipeRepository {
             },
             data: {
                 name,
-                ingredients: {
+                ingredient: {
                     deleteMany: {},
                     create: ingredients
                 }
@@ -76,7 +76,7 @@ export class RecipeRepository {
             },
             data: {
                 name,
-                ingredients
+                //ingredients
             }
         });
         res.json(updatedRecipe);
@@ -101,7 +101,7 @@ export class RecipeRepository {
                 id: id
             },
             include: {
-                ingredients: true
+                ingredient: true
             }
         });
 

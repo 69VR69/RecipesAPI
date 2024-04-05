@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { RecipeRepository } from '../repositories/recipeRepository'
 import { RecipeWithIngredients } from '../types';
-import { Recipe } from '@prisma/client';
 
 const recipeRepository = new RecipeRepository();
 
@@ -9,9 +8,9 @@ export class RecipeService {
 
     // Create a new recipe
     async createRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { name, ingredients }: RecipeWithIngredients = req.body;
+        const { name, ingredient }: RecipeWithIngredients = req.body;
         try {
-            const newRecipe = await recipeRepository.createRecipe({ name, ingredients });
+            const newRecipe = await recipeRepository.createRecipe({ name, ingredient });
             res.status(201).json(newRecipe)
         }
         catch (error : any) {

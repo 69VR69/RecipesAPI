@@ -1,16 +1,5 @@
 import { Prisma } from "@prisma/client";
 
-// Recipe with ingredients
-const recipeWithIngredients = Prisma.validator<Prisma.RecipeDefaultArgs>()({
-    include: { ingredients: true },
-  })
-
-export type RecipeWithIngredients = Prisma.RecipeGetPayload<typeof recipeWithIngredients>;
-
-// Recipe with ingredients but without id
-export type RecipeWithIngredientsWithoutId = Omit<RecipeWithIngredients, "id">;
-
-
 // Ingredients
 const Ingredients = Prisma.validator<Prisma.IngredientDefaultArgs>()({
   //include: { ingredients: true }, // TODO completer avec les saison maybe

@@ -5,9 +5,9 @@ const router = express.Router();
 const ingredientService = new IngredientService();
 
 // GET /api/recipes - Get all recipes
-//router.get('/', ingredientService.getRecipes);
+router.get('/', ingredientService.getIngredients);
 
 // POST /api/recipes - Create a new recipe
-//router.post('/', ingredientService.createRecipe);
+router.post('/', ingredientService.createIngredient);
 
 export default router;
