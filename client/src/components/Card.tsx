@@ -1,17 +1,15 @@
 import { Ingredient, Season } from "../models/Ingredient";
 import { ButtonRedirect } from "./Button";
 
-export function Card({children}: {children: React.ReactNode}) {
+export function Card({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <div>
-            <h2>Card</h2>
+        <div className={"card " + className}>
             {children}
         </div>
     );
 }
 
-export function RecipeCard({name, id}: {name: string, id: number})
-{
+export function RecipeCard({ name, id }: { name: string, id: number }) {
     return (
         <Card>
             <h3>{name}</h3>
@@ -20,11 +18,9 @@ export function RecipeCard({name, id}: {name: string, id: number})
     );
 }
 
-export function IngredientCard({ingredient, nbPersons}: {ingredient: Ingredient, nbPersons: number})
-{
+export function IngredientCard({ ingredient, nbPersons }: { ingredient: Ingredient, nbPersons: number }) {
 
-    function getSeasonIcon (season : Season)
-    {
+    function getSeasonIcon(season: Season) {
         switch (season) {
             case Season.WINTER:
                 return "❄️";
@@ -38,17 +34,18 @@ export function IngredientCard({ingredient, nbPersons}: {ingredient: Ingredient,
     }
 
     return (
-        <Card>
-            <h3>{ingredient.name}</h3>
-            <p>{ingredient.category}</p>
-            <p>Saison : {getSeasonIcon(ingredient.season)}</p>
-            <p>Pour {nbPersons} personnes</p>
+        <Card className="card-ingredient">
+            <div className="card-ingredient-content">
+                <h3 className="ingredient-name">{ingredient.name}</h3>
+                <p>{ingredient.category}</p>
+                <p>Saison : {getSeasonIcon(ingredient.season)}</p>
+                <p>Pour {nbPersons} personnes</p>
+            </div>
         </Card>
     );
 }
 
-export function StepCard({description, ingredients}: {description: string, ingredients: {ingredient: Ingredient, quantity: number}[]})
-{
+export function StepCard({ description, ingredients }: { description: string, ingredients: { ingredient: Ingredient, quantity: number }[] }) {
     return (
         <Card>
             <p>{description}</p>

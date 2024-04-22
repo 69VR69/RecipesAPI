@@ -30,7 +30,7 @@ export function IngredientDisplayer()
         <div>
             <h2>Ingredients</h2>
             <QuantitySelector nbPersons={nbPersons} setNbPersons={setNbPersons}/>
-            <ul>
+            <ul className="mrtn-recette_ingredients-items">
                 {dataTemp.map((ingredient: Ingredient) => (
                     <IngredientCard key={ingredient.id} ingredient={ingredient} nbPersons={nbPersons}/>
                 ))}
