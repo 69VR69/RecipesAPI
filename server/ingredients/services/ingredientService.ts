@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { IngredientRepository } from '../repositories/ingredientRepository'
-import { Ingredients } from '../types';
+import { IngredientRepository } from '../repositories/ingredientRepository.js'
+import { Ingredients } from '../types.js';
 
 const ingredientRepository = new IngredientRepository();
 

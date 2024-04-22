@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,29 +7,26 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-// Testing schema only, to be replaced with real schema
 model Recipe {
-  id        Int      @id @default(autoincrement())
-  name     String
-  ingredient RecipeIngredients[]
+  id         Int                @id @default(autoincrement())
+  name       String
+  ingredient RecipeIngredient[]
 }
 
 model Ingredient {
-  id        Int      @id @default(autoincrement())
-  name      String
-  category  String
-  season    Int
-  reciep RecipeIngredients[]
+  id       Int                @id @default(autoincrement())
+  name     String
+  category String
+  season   Int
+  recipe   RecipeIngredient[]
 }
 
-model RecipeIngredients{
-  ingredient Int
-  reciep Int
-  number Int 
+model RecipeIngredient {
+  ingredient         Int
+  recipe             Int
+  number             Int
+  ingredientRelation Ingredient @relation(fields: [ingredient], references: [id])
+  reciepRelation     Recipe     @relation(fields: [recipe], references: [id])
 
-  @@id([ingredient,reciep])
-  ingredientRelation Ingredient @relation(fields: [ingredient],references: [id] )
-  reciepRelation Recipe @relation(fields: [reciep],references: [id] )
+  @@id([ingredient, recipe])
 }
-
-

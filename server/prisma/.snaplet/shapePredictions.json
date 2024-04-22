@@ -1,0 +1,38 @@
+[
+  {
+    "schemaName": "",
+    "tableName": "Ingredient",
+    "predictions": [
+      {
+        "input": " ingredient category",
+        "column": "category",
+        "shape": "FOOD",
+        "confidence": 0.7,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": " ingredient name",
+        "column": "name",
+        "shape": "PERSON_FULL_NAME",
+        "confidence": 0.5060228705406189,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "",
+    "tableName": "Recipe",
+    "predictions": [
+      {
+        "input": " recipe name",
+        "column": "name",
+        "shape": "FOOD",
+        "confidence": 0.4907431304454803,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { RecipeRepository } from '../repositories/recipeRepository'
-import { RecipeWithIngredients } from '../types';
+import { RecipeRepository } from '../repositories/recipeRepository.js'
+import { RecipeWithIngredients } from '../types.js';
 
 const recipeRepository = new RecipeRepository();
 

@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
-import { RecipeWithIngredients, RecipeWithIngredientsWithoutId } from '../types';
+import { RecipeWithIngredients, RecipeWithIngredientsWithoutId } from '../types.js';
 
 const prisma = new PrismaClient();
 

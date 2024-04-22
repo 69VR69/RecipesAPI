@@ -1,6 +1,6 @@
 import express from 'express'
-import recipesRoute from './recipes/routes/recipeRoutes'
-import ingredientsRoute from './ingredients/routes/ingredientRoutes'
+import recipesRoute from './recipes/routes/recipeRoutes.js'
+import ingredientsRoute from './ingredients/routes/ingredientRoutes.js'
 
 const app = express()
 const port = 3000

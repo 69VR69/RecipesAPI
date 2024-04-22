@@ -125,3 +125,38 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Typescript result
+app
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# IDEs
+.vscode
+.idea
+*.iml
+.atom-build.json
+.project
+coverage
+dist
+
+# Config
+.env
+
+# Snyk
+.dccache
+.eslintcache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Prisma 
+server/prisma/migrations/
+server/prisma/dev.db
+server/prisma/dev.db-journal
