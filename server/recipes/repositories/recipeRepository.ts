@@ -24,7 +24,18 @@ export class RecipeRepository {
 
     // Get all recipes
     async getRecipes(req: Request<RecipeWithIngredients>, res: Response) {
+        // Get page and page size from query parameters and cast them to numbers
+        const { page, pageSize } = req.query.page ? { page: Number(req.query.page), pageSize: Number(req.query.pageSize) } : { page: -1, pageSize: -10 };
+        const paginateWhereClause = {
+            id: {
+                gte: (pageSize * (page - 1)) + 1,
+                lte: pageSize * page
+            }
+        }
+        const shouldPaginage = page > 0 && pageSize > 0;
+
         const recipes = await prisma.recipe.findMany({
+            where: shouldPaginage ? paginateWhereClause : {},
             include: {
                 ingredient: true
             }
@@ -34,7 +45,7 @@ export class RecipeRepository {
 
     // Get a single recipe
     async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } : {id : number} = req.params;
+        const { id }: { id: number } = req.params;
         const recipe = await prisma.recipe.findUnique({
             where: {
                 id: id
