@@ -45,10 +45,10 @@ export class RecipeRepository {
 
     // Get a single recipe
     async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id }: { id: number } = req.params;
+        const { id } = req.params;
         const recipe = await prisma.recipe.findUnique({
             where: {
-                id: id
+                id: +id
             },
             include: {
                 ingredient: true
@@ -63,7 +63,7 @@ export class RecipeRepository {
         const { name, ingredients } = req.body;
         const updatedRecipe = await prisma.recipe.update({
             where: {
-                id: id
+                id: +id
             },
             data: {
                 name,
@@ -83,7 +83,7 @@ export class RecipeRepository {
         const { name, ingredients } = req.body;
         const updatedRecipe = await prisma.recipe.update({
             where: {
-                id: id
+                id: +id
             },
             data: {
                 name,
@@ -98,7 +98,7 @@ export class RecipeRepository {
         const { id } = req.params;
         const deletedRecipe = await prisma.recipe.delete({
             where: {
-                id: id
+                id: +id
             }
         });
         res.json(deletedRecipe);
@@ -109,7 +109,7 @@ export class RecipeRepository {
         const { id } = req.params;
         const cookedRecipe = await prisma.recipe.findUnique({
             where: {
-                id: id
+                id: +id
             },
             include: {
                 ingredient: true

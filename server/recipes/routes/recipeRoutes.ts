@@ -27,7 +27,7 @@ router.get('/:id', recipeService.getRecipe);
 router.put('/:id', recipeService.updateRecipe);
 
 // DELETE /api/recipes/<ID> - Delete a recipe
-router.delete('/:id', recipeService.updateRecipe);
+router.delete('/:id', recipeService.deleteRecipe);
 
 // POST /api/recipes/<ID>/cook - Cook a recipe, consuming ingredients in the process
 router.post('/:id/cook', recipeService.cookRecipe);
