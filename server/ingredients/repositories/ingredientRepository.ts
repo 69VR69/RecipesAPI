@@ -20,9 +20,8 @@ export class IngredientRepository{
     }
 
     // Get all ingredients
-    async getIngredients(req: Request<Ingredients>, res: Response) {
-        const ingredients = await prisma.recipe.findMany({
-        });
+    public async getIngredients(req: Request<Ingredients>, res: Response) {
+        const ingredients = await prisma.ingredient.findMany({});
         res.json(ingredients);
     }
 
@@ -31,7 +30,7 @@ export class IngredientRepository{
         const { id } = req.params;
         const ingredient = await prisma.ingredient.findUnique({
             where: {
-                id: id
+                id: +id
             }
         });
         res.json(ingredient);
@@ -53,6 +52,8 @@ export class IngredientRepository{
         });
         res.json(updatedIngredient);
     }
+
+
 
     // Delete an ingredient
     async deleteIngredient(req: Request<Ingredients>, res: Response) {

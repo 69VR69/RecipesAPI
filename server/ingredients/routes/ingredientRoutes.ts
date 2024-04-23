@@ -4,10 +4,14 @@ import { IngredientService } from '../services/ingredientService.js';
 const router = express.Router();
 const ingredientService = new IngredientService();
 
-// GET /api/recipes - Get all recipes
+// GET /api/ingredients - Get all ingredients //si base vide alors on renvoie un []
 router.get('/', ingredientService.getIngredients);
 
-// POST /api/recipes - Create a new recipe
+
+//GET /api/ingredients/1 - get an ingredient by id 
+router.get('/:id', ingredientService.getIngredient);
+
+// POST /api/ingredient - Create a new ingredients
 router.post('/', ingredientService.createIngredient);
 
 export default router;
