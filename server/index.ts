@@ -3,7 +3,7 @@ import recipesRoute from './recipes/routes/recipeRoutes.js'
 import ingredientsRoute from './ingredients/routes/ingredientRoutes.js'
 
 const app = express()
-const port = 3000
+const port = 4200
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
