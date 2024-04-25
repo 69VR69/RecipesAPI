@@ -1,9 +1,11 @@
 import express from 'express'
 import cors from 'cors';
+import { PrismaClient } from '@prisma/client';
 import recipesRoute from './recipes/routes/recipeRoutes.js'
 import ingredientsRoute from './ingredients/routes/ingredientRoutes.js'
 
 const app = express()
+const prisma = new PrismaClient();
 
 // Utilisez le middleware cors pour autoriser les requêtes cross-origin
 app.use(cors());
@@ -17,6 +19,12 @@ app.get('/', (req, res) => {
 
 app.get('/api', (req, res) => {
   res.send('Hello World!')
+});
+
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", "text");
+  let metrics = await prisma.$metrics.prometheus();
+  res.status(200).end(metrics);
 });
 
 app.use('/api/recipes', recipesRoute);

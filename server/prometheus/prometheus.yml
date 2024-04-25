@@ -1,0 +1,11 @@
+# prometheus/prometheus.yml
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 1s
+
+    static_configs:
+      - targets: ['host.docker.internal:4000']
+        labels:
+          service: 'prisma-metrics'
+          group: 'production'
