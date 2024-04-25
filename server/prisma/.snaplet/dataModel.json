@@ -188,13 +188,13 @@
           "isId": false
         },
         {
-          "name": "Recipe",
-          "type": "Recipe",
+          "name": "Ingredient",
+          "type": "Ingredient",
           "isRequired": true,
           "kind": "object",
-          "relationName": "RecipeIngredientToRecipe",
+          "relationName": "RecipeIngredientToIngredient",
           "relationFromFields": [
-            "recipe"
+            "ingredient"
           ],
           "relationToFields": [
             "id"
@@ -206,13 +206,13 @@
           "hasDefaultValue": false
         },
         {
-          "name": "Ingredient",
-          "type": "Ingredient",
+          "name": "Recipe",
+          "type": "Recipe",
           "isRequired": true,
           "kind": "object",
-          "relationName": "RecipeIngredientToIngredient",
+          "relationName": "RecipeIngredientToRecipe",
           "relationFromFields": [
-            "ingredient"
+            "recipe"
           ],
           "relationToFields": [
             "id"
