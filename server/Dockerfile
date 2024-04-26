@@ -1,5 +1,5 @@
-# Use the official Node.js 14 image as base
-FROM node:14
+# Use the official Node.js 19 image as base
+FROM node:19
 
 # Set working directory inside the container
 WORKDIR /.
@@ -8,7 +8,7 @@ WORKDIR /.
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 4200
 
 # Start the express server
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
