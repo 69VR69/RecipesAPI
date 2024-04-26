@@ -14,6 +14,8 @@
     "@types/cors": "^2.8.17",
     "cors": "^2.8.5",
     "express": "^4.19.1",
+    "joi": "^17.13.0",
+    "prisma-joi-generator": "^0.2.0",
     "tsx": "^4.7.2"
   },
   "devDependencies": {
