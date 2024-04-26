@@ -42,15 +42,27 @@ export class IngredientService {
     }
 
 
-        // Create a new ingredient
-        async createIngredient(req: Request<Ingredients>, res: Response) {
-            const { name, category, season }: Ingredients = req.body;
-            try {
-                const newIngrdedient= await ingredientRepository.createIngredient({ name, category, season });
-                res.status(201).json(newIngrdedient)
-            }
-            catch (error : any) {
-                res.status(500).json({ error: error.message });
-            }
+    //delete an ingredient 
+    public async deleteIngredient(req: Request<Ingredients>, res: Response){
+        try {
+            await ingredientRepository.deleteIngredient(req,res)
+            res.status(204).json({msg: "Successfully deleted ingredient " + req.params.id})
         }
+        catch (error : any){
+            res.status(500).json({error: error.message})
+        }
+    }
+
+
+    // Create a new ingredient
+    async createIngredient(req: Request<Ingredients>, res: Response) {
+        const { name, category, season }: Ingredients = req.body;
+        try {
+            const newIngrdedient= await ingredientRepository.createIngredient({ name, category, season });
+        res.status(201).json(newIngrdedient)
+        }
+        catch (error : any) {
+            res.status(500).json({ error: error.message });
+        }
+    }
 }

@@ -14,4 +14,15 @@ router.get('/:id', ingredientService.getIngredient);
 // POST /api/ingredient - Create a new ingredients
 router.post('/', ingredientService.createIngredient);
 
+//PUT /api/ingredients/1 - Update an ingredient 
+router.put('/:id',ingredientService.updateIngredient);
+
+//DELETE /api/ingredients/1 - Delete an ingredient 
+router.delete('/:id',ingredientService.deleteIngredient) 
+
+//PUT /api/ingredient/1/a
+
+
+
+
 export default router;

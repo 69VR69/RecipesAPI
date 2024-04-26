@@ -26,7 +26,7 @@ export class IngredientRepository{
     }
 
     // Get an Ingredient
-    async getIngredient(req: Request<Ingredients>, res: Response) {
+    public async getIngredient(req: Request<Ingredients>, res: Response) {
         const { id } = req.params;
         const ingredient = await prisma.ingredient.findUnique({
             where: {
@@ -37,12 +37,12 @@ export class IngredientRepository{
     }
 
     // Update an Ingredient
-    async updateIngredient(req: Request<Ingredients>, res: Response) {
+    public async updateIngredient(req: Request<Ingredients>, res: Response) {
         const { id } = req.params;
         const { name, category, season } = req.body;
         const updatedIngredient = await prisma.ingredient.update({
             where: {
-                id: id
+                id: +id
             },
             data: {
                 name,
@@ -56,11 +56,11 @@ export class IngredientRepository{
 
 
     // Delete an ingredient
-    async deleteIngredient(req: Request<Ingredients>, res: Response) {
+    public async deleteIngredient(req: Request<Ingredients>, res: Response) {
         const { id } = req.params;
         const deletedIngredient = await prisma.ingredient.delete({
             where: {
-                id: id
+                id: +id
             }
         });
         res.json(deletedIngredient);
