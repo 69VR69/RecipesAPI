@@ -1,10 +1,11 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeIngredientCreateNestedManyWithoutIngredientRelationInputSchemaObject } from './RecipeIngredientCreateNestedManyWithoutIngredientRelationInput.schema.js'
+import { RecipeIngredientCreateNestedManyWithoutIngredientRelationInputSchemaObject } from './RecipeIngredientCreateNestedManyWithoutIngredientRelationInput.schema.js';
+import { SeasonCreateNestedOneWithoutIngredientInputSchemaObject } from './SeasonCreateNestedOneWithoutIngredientInput.schema.js'
 
 export const IngredientCreateWithoutStepInputSchemaObject = {
     name: Joi.string().required(),
   category: Joi.string().required(),
-  season: Joi.number().required(),
-  recipe: Joi.object().keys(RecipeIngredientCreateNestedManyWithoutIngredientRelationInputSchemaObject)
+  recipe: Joi.object().keys(RecipeIngredientCreateNestedManyWithoutIngredientRelationInputSchemaObject),
+  seasonRelation: Joi.object().keys(SeasonCreateNestedOneWithoutIngredientInputSchemaObject)
 }

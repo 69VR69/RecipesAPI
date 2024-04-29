@@ -37,6 +37,20 @@
   },
   {
     "schemaName": "",
+    "tableName": "Season",
+    "predictions": [
+      {
+        "input": " season label",
+        "column": "label",
+        "shape": "AI_LABEL",
+        "confidence": 0.4804392158985138,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "",
     "tableName": "Step",
     "predictions": [
       {

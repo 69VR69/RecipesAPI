@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema.js.js'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js'
 
 export const RecipeIngredientOrderByRelationAggregateInputSchemaObject = {
     _count: SortOrderSchema

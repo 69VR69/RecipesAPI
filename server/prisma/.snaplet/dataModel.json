@@ -61,6 +61,24 @@
           "isId": false
         },
         {
+          "name": "Season",
+          "type": "Season",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "IngredientToSeason",
+          "relationFromFields": [
+            "season"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
           "name": "RecipeIngredient",
           "type": "RecipeIngredient",
           "isRequired": false,
@@ -216,13 +234,13 @@
           "isId": false
         },
         {
-          "name": "Recipe",
-          "type": "Recipe",
+          "name": "Ingredient",
+          "type": "Ingredient",
           "isRequired": true,
           "kind": "object",
-          "relationName": "RecipeIngredientToRecipe",
+          "relationName": "RecipeIngredientToIngredient",
           "relationFromFields": [
-            "recipe"
+            "ingredient"
           ],
           "relationToFields": [
             "id"
@@ -234,13 +252,13 @@
           "hasDefaultValue": false
         },
         {
-          "name": "Ingredient",
-          "type": "Ingredient",
+          "name": "Recipe",
+          "type": "Recipe",
           "isRequired": true,
           "kind": "object",
-          "relationName": "RecipeIngredientToIngredient",
+          "relationName": "RecipeIngredientToRecipe",
           "relationFromFields": [
-            "ingredient"
+            "recipe"
           ],
           "relationToFields": [
             "id"
@@ -258,6 +276,63 @@
           "fields": [
             "ingredient",
             "recipe"
+          ]
+        }
+      ]
+    },
+    "Season": {
+      "id": "Season",
+      "tableName": "Season",
+      "fields": [
+        {
+          "id": "Season.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "Season_id_seq",
+            "increment": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true
+        },
+        {
+          "id": "Season.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false
+        },
+        {
+          "name": "Ingredient",
+          "type": "Ingredient",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "IngredientToSeason",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "Season_pkey",
+          "fields": [
+            "id"
           ]
         }
       ]

@@ -1,8 +1,6 @@
 import express from 'express';
-import { Request, Response } from 'express';
 import { RecipeService } from '../services/recipeService.js';
-import { RecipeWithIngredients } from '../types.js';
-import { RecipeCreateSchema } from '../../prisma/generated/schemas/createOneRecipe.schema.js';
+import { RecipeCreateSchema } from '../../prisma/generated/schemas/index.js';
 import Joi from 'joi';
 
 const router = express.Router();
