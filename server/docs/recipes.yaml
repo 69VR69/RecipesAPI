@@ -1,10 +1,11 @@
 openapi: 3.0.3
 info:
   title: Food time
+  description: I'm Hungary, Czech the fridge!
   version: 0.0.1
 tags:
   - name: recipe
-    description: Recipes
+    description: Panic! at the food
   - name: steps
     description: How to cook
 paths:
@@ -117,7 +118,28 @@ paths:
           description: Recipe not found
       tags:
         - recipe
-
+        
+  /recipes/{recipeId}/cook:
+    parameters:
+      - name: recipeId
+        in: path
+        description: Recipe ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+    post:
+      summary: Cook a recipe
+      description: Cook a recipe, consuming ingredients in the process
+      operationId: cookRecipe
+      responses:
+        '200':
+          description: Recipe has been cooked!
+        '404':
+          description: Recipe not found
+      tags:
+        - recipe
+          
   /recipes/{recipeId}/steps:
     parameters:
       - name: recipeId

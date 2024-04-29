@@ -114,11 +114,22 @@ router.delete('/:id',
 );
 
 // TODO
-// GET /api/recipes/<ID>/steps
-// POST /api/recipes/<ID>/steps
-// GET /api/recipes/<RECIPE_ID>/steps/<STEP_ID>
-// PUT /api/recipes/<RECIPE_ID>/steps/<STEP_ID>
-// DELETE /api/recipes/<RECIPE_ID>/steps/<STEP_ID>
+// GET /api/recipes/<ID>/steps - get step of a recipe
+router.get('/:id/steps', );
+
+// POST /api/recipes/<ID>/steps - Add step to a recipe
+router.post('/:id/steps',);
+
+// GET /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Get a step of a recipe
+router.get('/:id/steps/:stepId',);
+
+// PUT /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Update step of a recipe 
+router.put('/:id/steps/:stepId',);
+
+// DELETE /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Delete step of a recipe 
+router.delete('/:id/steps/:stepId',)
+
+
 
 
 export default router;

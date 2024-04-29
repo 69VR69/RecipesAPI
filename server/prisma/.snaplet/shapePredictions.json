@@ -34,5 +34,19 @@
         "confidenceContext": 0
       }
     ]
+  },
+  {
+    "schemaName": "",
+    "tableName": "Step",
+    "predictions": [
+      {
+        "input": " step description",
+        "column": "description",
+        "shape": "TASK_DURATION",
+        "confidence": 0.3194100856781006,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
   }
 ]
