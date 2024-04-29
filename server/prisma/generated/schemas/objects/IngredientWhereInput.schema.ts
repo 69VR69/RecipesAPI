@@ -2,7 +2,8 @@
 import Joi from 'joi';
 import { IntFilterSchemaObject } from './IntFilter.schema';
 import { StringFilterSchemaObject } from './StringFilter.schema';
-import { RecipeIngredientListRelationFilterSchemaObject } from './RecipeIngredientListRelationFilter.schema'
+import { RecipeIngredientListRelationFilterSchemaObject } from './RecipeIngredientListRelationFilter.schema';
+import { StepIngredientListRelationFilterSchemaObject } from './StepIngredientListRelationFilter.schema'
 
 export const IngredientWhereInputSchemaObject = {
     AND: Joi.alternatives().try(Joi.link('#IngredientWhereInput'),
@@ -18,5 +19,6 @@ Joi.string()),
 Joi.string()),
   season: Joi.alternatives().try(Joi.object().keys(IntFilterSchemaObject),
 Joi.number()),
-  recipe: Joi.object().keys(RecipeIngredientListRelationFilterSchemaObject)
+  recipe: Joi.object().keys(RecipeIngredientListRelationFilterSchemaObject),
+  step: Joi.object().keys(StepIngredientListRelationFilterSchemaObject)
 }

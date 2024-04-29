@@ -62,6 +62,7 @@ export class RecipeService {
         }
     }
 
+    // Cook a recipe 
     public async cookRecipe(req: Request<RecipeWithIngredients>, res: Response) {
         try {
             await recipeRepository.cookRecipe(req, res)

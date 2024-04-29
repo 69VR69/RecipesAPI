@@ -20,8 +20,6 @@ router.put('/:id',ingredientService.updateIngredient);
 //DELETE /api/ingredients/1 - Delete an ingredient 
 router.delete('/:id',ingredientService.deleteIngredient) 
 
-//PUT /api/ingredient/1/a
-
 
 
 

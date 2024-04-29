@@ -1,11 +1,11 @@
-// import { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 
-// // Step with ingredients
-// const Steps = Prisma.validator<Prisma.StepsDefaultArgs>()({
-//   })
+// Step with ingredients
+const Steps = Prisma.validator<Prisma.StepDefaultArgs>()({
+  })
 
 
-// export type Steps = Prisma.StepGetPayload<typeof Steps>;
+export type Steps = Prisma.StepGetPayload<typeof Steps>;
 
-// // ingredients without id
-// export type StepsWithoutId = Omit<Steps, "id">; 
+// ingredients without id
+export type StepsWithoutId = Omit<Steps, "id">; 

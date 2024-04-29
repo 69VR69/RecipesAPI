@@ -2,7 +2,8 @@
 import Joi from 'joi';
 import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema';
 import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema';
-import { RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject } from './RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInput.schema'
+import { RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject } from './RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInput.schema';
+import { StepIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject } from './StepIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInput.schema'
 
 export const IngredientUncheckedUpdateInputSchemaObject = {
     id: Joi.alternatives().try(Joi.number(),
@@ -13,5 +14,6 @@ Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
 Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
   season: Joi.alternatives().try(Joi.number(),
 Joi.object().keys(IntFieldUpdateOperationsInputSchemaObject)),
-  recipe: Joi.object().keys(RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject)
+  recipe: Joi.object().keys(RecipeIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject),
+  step: Joi.object().keys(StepIngredientUncheckedUpdateManyWithoutIngredientRelationNestedInputSchemaObject)
 }
