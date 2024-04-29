@@ -44,8 +44,7 @@ export class RecipeRepository {
     }
 
     // Get a single recipe
-    async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+    async getRecipe(id: number, res: Response) {
         const recipe = await prisma.recipe.findUnique({
             where: {
                 id: +id

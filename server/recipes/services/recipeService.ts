@@ -30,9 +30,10 @@ export class RecipeService {
     }
 
     // Get recipe by id
-    public async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+    public async getRecipe(id: number, res: Response) 
+    {
         try {
-            const recipes = await recipeRepository.getRecipe(req, res)
+            const recipes = await recipeRepository.getRecipe(id, res)
             res.status(200).json(recipes)
         }
         catch (error : any) {
