@@ -90,7 +90,28 @@ router.put('/:id',
 );
 
 // DELETE /api/recipes/<ID> - Delete a recipe
-router.delete('/:id', recipeService.deleteRecipe);
+router.delete('/:id',
+    (req, rep) => {
+        const recipeId = req.params.id;
+
+        // check if the recipe id is a number
+        if (Joi.number().validate(recipeId).error) {
+            rep.status(400).send('Recipe ID must be a number');
+            return;
+        }
+
+        const id = parseInt(recipeId);
+
+        recipeService.deleteRecipe(id, rep)
+            .then(() => {
+                rep.status(204).send();
+            })
+            .catch((error) => {
+                console.error(error);
+                rep.status(500).send('Internal Server Error');
+            });
+    }
+);
 
 // TODO
 // GET /api/recipes/<ID>/steps

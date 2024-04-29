@@ -52,10 +52,10 @@ export class RecipeService {
     }
 
     // Delete recipe
-    public async deleteRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+    public async deleteRecipe(id: number, res: Response) {
         try {
-            await recipeRepository.deleteRecipe(req, res)
-            res.status(204).json({ msg: "Successfully deleted recipe " + req.params.id })
+            await recipeRepository.deleteRecipe(id, res)
+            res.status(204).json({ msg: "Successfully deleted recipe " + id })
         }
         catch (error: any) {
             res.status(500).json({ error: error.message });

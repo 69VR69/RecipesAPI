@@ -92,23 +92,12 @@ export class RecipeRepository {
     }
 
     // Delete a recipe
-    async deleteRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+    async deleteRecipe(id: number, res: Response) {
         const deletedRecipe = await prisma.recipe.delete({
             where: {
                 id: +id
             }
         });
         res.json(deletedRecipe);
-    }
-
-        // TODO update ingredients quantity once recipe is cooked
-        // await prisma.ingredient.update({
-        //     where: {
-        //         id: cookedRecipe.ingredients.qty
-        //     }
-        // });
-
-        res.json(cookedRecipe);
     }
 }
