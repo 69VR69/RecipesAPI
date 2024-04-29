@@ -1,8 +1,8 @@
 import express from 'express';
-import { stepService } from '../services/stepService.js';
+import { StepService } from '../services/stepService.js';
 
 const router = express.Router();
-const stepService = new stepService();
+const stepService = new StepService();
 
 // GET /api/ingredients - Get all step of the reciep //si base vide alors on renvoie un []
 router.get('/', stepService.getSteps);

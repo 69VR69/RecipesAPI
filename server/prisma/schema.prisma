@@ -25,6 +25,7 @@ model Ingredient {
   season   Int
   recipe   RecipeIngredient[]
   step   StepIngredient[]
+  seasonRelation Season @relation(fields: [season], references: [id])
 }
 
 model Step {
@@ -34,6 +35,12 @@ model Step {
   recipe Recipe @relation(fields: [recipeId], references: [id])
 
   ingredient StepIngredient[]
+}
+
+model Season{
+  id Int @id @default(autoincrement())
+  label String 
+  ingredient Ingredient[]
 }
 
 

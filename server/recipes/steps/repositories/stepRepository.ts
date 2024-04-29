@@ -1,17 +1,23 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
-import { Steps,StepsWithoutId } from '../types.js';
+import { StepWithIngredients, StepWithIngredientsWithoutId } from '../types.js';
 
 const prisma = new PrismaClient();
 
 export class StepRepository{
     // Create a new Step
-    public async createStep({ description, ingredient }: StepsWithoutId) : Promise<Steps>
+    public async createStep({ description, ingredient, recipeId }: StepWithIngredientsWithoutId) : Promise<StepWithIngredients>
     {
         const newStep = await prisma.step.create({
             data: {
                 description,
-                ingredient
+                recipeId,
+                ingredient: {
+                    create: ingredient
+                }
+            },
+            include: {
+                ingredient: true
             }
         });
 
@@ -19,13 +25,13 @@ export class StepRepository{
     }
 
     // Get all steps
-    public async getSteps(req: Request<Steps>, res: Response) {
+    public async getSteps(req: Request<StepWithIngredients>, res: Response) {
         const steps = await prisma.step.findMany({});
         res.json(steps);
     }
 
     // Get an Step
-    public async getStep(req: Request<Steps>, res: Response) {
+    public async getStep(req: Request<StepWithIngredients>, res: Response) {
         const { id } = req.params;
         const step = await prisma.step.findUnique({
             where: {
@@ -36,16 +42,20 @@ export class StepRepository{
     }
 
     // Update an Step
-    public async updateStep(req: Request<Steps>, res: Response) {
+    public async updateStep(req: Request<StepWithIngredients>, res: Response) {
         const { id } = req.params;
-        const { description, ingredients } = req.body;
+        const { description, ingredients,recipeId } = req.body;
         const updatedStep = await prisma.step.update({
             where: {
                 id: +id
             },
             data: {
                 description,
-                ingredients
+                recipeId,
+                ingredient: {
+                    deleteMany: {},
+                    create: ingredients
+                }
             }
         });
         res.json(updatedStep);
@@ -54,7 +64,7 @@ export class StepRepository{
 
 
     // Delete an step
-    public async deleteStep(req: Request<Steps>, res: Response) {
+    public async deleteStep(req: Request<StepWithIngredients>, res: Response) {
         const { id } = req.params;
         const deletedStep = await prisma.step.delete({
             where: {

@@ -23,7 +23,7 @@ export class RecipeRepository {
     }
 
     // Get all recipes
-    async getRecipes(req: Request<RecipeWithIngredients>, res: Response) {
+    async getRecipes(req: Request, res: Response) {
         // Get page and page size from query parameters and cast them to numbers
         const { page, pageSize } = req.query.page ? { page: Number(req.query.page), pageSize: Number(req.query.pageSize) } : { page: -1, pageSize: -10 };
         const paginateWhereClause = {
@@ -44,8 +44,7 @@ export class RecipeRepository {
     }
 
     // Get a single recipe
-    async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+    async getRecipe(id: number, res: Response) {
         const recipe = await prisma.recipe.findUnique({
             where: {
                 id: +id
@@ -58,8 +57,7 @@ export class RecipeRepository {
     }
 
     // Update a recipe
-    async updateRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+    async updateRecipe(id: number, req: Request<RecipeWithIngredients>, res: Response) {
         const { name, ingredients } = req.body;
         const updatedRecipe = await prisma.recipe.update({
             where: {
@@ -94,35 +92,12 @@ export class RecipeRepository {
     }
 
     // Delete a recipe
-    async deleteRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
+    async deleteRecipe(id: number, res: Response) {
         const deletedRecipe = await prisma.recipe.delete({
             where: {
                 id: +id
             }
         });
         res.json(deletedRecipe);
-    }
-
-    // Cook a recipe, consuming corresponding ingredients in the process
-    async cookRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        const { id } = req.params;
-        const cookedRecipe = await prisma.recipe.findUnique({
-            where: {
-                id: +id
-            },
-            include: {
-                ingredient: true
-            }
-        });
-
-        // TODO update ingredients quantity once recipe is cooked
-        // await prisma.ingredient.update({
-        //     where: {
-        //         id: cookedRecipe.ingredients.qty
-        //     }
-        // });
-
-        res.json(cookedRecipe);
     }
 }

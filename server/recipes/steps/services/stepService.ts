@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
-import { StepRepository } from '../repositories/StepRepository.js'
-import { Steps } from '../types.js';
+import { StepRepository } from '../repositories/stepRepository.js'
+import { StepWithIngredients } from '../types.js';
 
-const StepRepository = new StepRepository();
+const stepRepository = new StepRepository();
 
-export class stepService {
+export class StepService {
 
 
     // Get all step
-    public async getSteps(req: Request<Steps>, res: Response) {
+    public async getSteps(req: Request<StepWithIngredients>, res: Response) {
         try {
-            const step = await StepRepository.getSteps(req,res);
+            const step = await stepRepository.getSteps(req,res);
             res.status(200).json(step)
         }
         catch (error : any) {
@@ -19,9 +19,9 @@ export class stepService {
     }
 
     // Get an step by id
-    public async getStep(req: Request<Steps>, res: Response) {
+    public async getStep(req: Request<StepWithIngredients>, res: Response) {
         try {
-            const step = await StepRepository.getStep(req,res);
+            const step = await stepRepository.getStep(req,res);
             res.status(200).json(step)
         }
         catch (error : any) {
@@ -31,9 +31,9 @@ export class stepService {
 
 
     //update a step
-    public async updateStep(req: Request<Steps>, res: Response){
+    public async updateStep(req: Request<StepWithIngredients>, res: Response){
         try {
-            await StepRepository.updateStep(req,res)
+            await stepRepository.updateStep(req,res)
             res.status(204).json({msg: "Successfully update step " + req.params.id})
         }
         catch (error : any){
@@ -43,9 +43,9 @@ export class stepService {
 
 
     //delete a step 
-    public async deleteStep(req: Request<Steps>, res: Response){
+    public async deleteStep(req: Request<StepWithIngredients>, res: Response){
         try {
-            await StepRepository.deleteStep(req,res)
+            await stepRepository.deleteStep(req,res)
             res.status(204).json({msg: "Successfully deleted step " + req.params.id})
         }
         catch (error : any){
@@ -54,11 +54,11 @@ export class stepService {
     }
 
 
-    // Create a new ingredient
-    async createIngredient(req: Request<Steps>, res: Response) {
-        const { name, category, season }: Steps = req.body;
+    // Create a new step
+    async createStep(req: Request<StepWithIngredients>, res: Response) {
+        const { description, ingredient, recipeId }: StepWithIngredients = req.body;
         try {
-            const newIngrdedient= await StepRepository.createIngredient({ name, category, season });
+            const newIngrdedient= await stepRepository.createStep({ description, ingredient, recipeId });
         res.status(201).json(newIngrdedient)
         }
         catch (error : any) {
