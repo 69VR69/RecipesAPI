@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema';
-import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema'
+import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema.js';
+import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema.js'
 
 export const IngredientUpdateManyMutationInputSchemaObject = {
     name: Joi.alternatives().try(Joi.string(),

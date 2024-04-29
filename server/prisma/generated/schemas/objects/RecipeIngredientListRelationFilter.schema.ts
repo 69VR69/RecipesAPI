@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeIngredientWhereInputSchemaObject } from './RecipeIngredientWhereInput.schema'
+import { RecipeIngredientWhereInputSchemaObject } from './RecipeIngredientWhereInput.schema.js'
 
 export const RecipeIngredientListRelationFilterSchemaObject = {
     every: Joi.object().keys(RecipeIngredientWhereInputSchemaObject),

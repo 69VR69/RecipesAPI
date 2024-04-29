@@ -1,13 +1,13 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeIngredientCreateWithoutReciepRelationInputSchemaObject } from './RecipeIngredientCreateWithoutReciepRelationInput.schema';
-import { RecipeIngredientUncheckedCreateWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUncheckedCreateWithoutReciepRelationInput.schema';
-import { RecipeIngredientCreateOrConnectWithoutReciepRelationInputSchemaObject } from './RecipeIngredientCreateOrConnectWithoutReciepRelationInput.schema';
-import { RecipeIngredientUpsertWithWhereUniqueWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpsertWithWhereUniqueWithoutReciepRelationInput.schema';
-import { RecipeIngredientWhereUniqueInputSchemaObject } from './RecipeIngredientWhereUniqueInput.schema';
-import { RecipeIngredientUpdateWithWhereUniqueWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpdateWithWhereUniqueWithoutReciepRelationInput.schema';
-import { RecipeIngredientUpdateManyWithWhereWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpdateManyWithWhereWithoutReciepRelationInput.schema';
-import { RecipeIngredientScalarWhereInputSchemaObject } from './RecipeIngredientScalarWhereInput.schema'
+import { RecipeIngredientCreateWithoutReciepRelationInputSchemaObject } from './RecipeIngredientCreateWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientUncheckedCreateWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUncheckedCreateWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientCreateOrConnectWithoutReciepRelationInputSchemaObject } from './RecipeIngredientCreateOrConnectWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientUpsertWithWhereUniqueWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpsertWithWhereUniqueWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientWhereUniqueInputSchemaObject } from './RecipeIngredientWhereUniqueInput.schema.js';
+import { RecipeIngredientUpdateWithWhereUniqueWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpdateWithWhereUniqueWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientUpdateManyWithWhereWithoutReciepRelationInputSchemaObject } from './RecipeIngredientUpdateManyWithWhereWithoutReciepRelationInput.schema.js';
+import { RecipeIngredientScalarWhereInputSchemaObject } from './RecipeIngredientScalarWhereInput.schema.js'
 
 export const RecipeIngredientUpdateManyWithoutReciepRelationNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(RecipeIngredientCreateWithoutReciepRelationInputSchemaObject),

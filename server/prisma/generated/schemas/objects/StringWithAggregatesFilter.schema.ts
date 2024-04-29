@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { NestedStringWithAggregatesFilterSchemaObject } from './NestedStringWithAggregatesFilter.schema';
-import { NestedIntFilterSchemaObject } from './NestedIntFilter.schema';
-import { NestedStringFilterSchemaObject } from './NestedStringFilter.schema'
+import { NestedStringWithAggregatesFilterSchemaObject } from './NestedStringWithAggregatesFilter.schema.js';
+import { NestedIntFilterSchemaObject } from './NestedIntFilter.schema.js';
+import { NestedStringFilterSchemaObject } from './NestedStringFilter.schema.js'
 
 export const StringWithAggregatesFilterSchemaObject = {
     equals: Joi.string(),

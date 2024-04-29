@@ -1,11 +1,11 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema';
-import { IngredientCountOrderByAggregateInputSchemaObject } from './IngredientCountOrderByAggregateInput.schema';
-import { IngredientAvgOrderByAggregateInputSchemaObject } from './IngredientAvgOrderByAggregateInput.schema';
-import { IngredientMaxOrderByAggregateInputSchemaObject } from './IngredientMaxOrderByAggregateInput.schema';
-import { IngredientMinOrderByAggregateInputSchemaObject } from './IngredientMinOrderByAggregateInput.schema';
-import { IngredientSumOrderByAggregateInputSchemaObject } from './IngredientSumOrderByAggregateInput.schema'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js';
+import { IngredientCountOrderByAggregateInputSchemaObject } from './IngredientCountOrderByAggregateInput.schema.js';
+import { IngredientAvgOrderByAggregateInputSchemaObject } from './IngredientAvgOrderByAggregateInput.schema.js';
+import { IngredientMaxOrderByAggregateInputSchemaObject } from './IngredientMaxOrderByAggregateInput.schema.js';
+import { IngredientMinOrderByAggregateInputSchemaObject } from './IngredientMinOrderByAggregateInput.schema.js';
+import { IngredientSumOrderByAggregateInputSchemaObject } from './IngredientSumOrderByAggregateInput.schema.js'
 
 export const IngredientOrderByWithAggregationInputSchemaObject = {
     id: SortOrderSchema,

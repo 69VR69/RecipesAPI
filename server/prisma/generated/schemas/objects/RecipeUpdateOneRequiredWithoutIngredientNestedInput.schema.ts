@@ -1,12 +1,12 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeCreateWithoutIngredientInputSchemaObject } from './RecipeCreateWithoutIngredientInput.schema';
-import { RecipeUncheckedCreateWithoutIngredientInputSchemaObject } from './RecipeUncheckedCreateWithoutIngredientInput.schema';
-import { RecipeCreateOrConnectWithoutIngredientInputSchemaObject } from './RecipeCreateOrConnectWithoutIngredientInput.schema';
-import { RecipeUpsertWithoutIngredientInputSchemaObject } from './RecipeUpsertWithoutIngredientInput.schema';
-import { RecipeWhereUniqueInputSchemaObject } from './RecipeWhereUniqueInput.schema';
-import { RecipeUpdateWithoutIngredientInputSchemaObject } from './RecipeUpdateWithoutIngredientInput.schema';
-import { RecipeUncheckedUpdateWithoutIngredientInputSchemaObject } from './RecipeUncheckedUpdateWithoutIngredientInput.schema'
+import { RecipeCreateWithoutIngredientInputSchemaObject } from './RecipeCreateWithoutIngredientInput.schema.js';
+import { RecipeUncheckedCreateWithoutIngredientInputSchemaObject } from './RecipeUncheckedCreateWithoutIngredientInput.schema.js';
+import { RecipeCreateOrConnectWithoutIngredientInputSchemaObject } from './RecipeCreateOrConnectWithoutIngredientInput.schema.js';
+import { RecipeUpsertWithoutIngredientInputSchemaObject } from './RecipeUpsertWithoutIngredientInput.schema.js';
+import { RecipeWhereUniqueInputSchemaObject } from './RecipeWhereUniqueInput.schema.js';
+import { RecipeUpdateWithoutIngredientInputSchemaObject } from './RecipeUpdateWithoutIngredientInput.schema.js';
+import { RecipeUncheckedUpdateWithoutIngredientInputSchemaObject } from './RecipeUncheckedUpdateWithoutIngredientInput.schema.js'
 
 export const RecipeUpdateOneRequiredWithoutIngredientNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(RecipeCreateWithoutIngredientInputSchemaObject),
