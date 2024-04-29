@@ -23,8 +23,9 @@ app.get('/api', (req, res) => {
 
 app.get("/metrics", async (req, res) => {
   res.set("Content-Type", "text");
-  let metrics = await prisma.$metrics.prometheus();
-  res.status(200).end(metrics);
+  // TODO fix metrics for Grafana
+  // let metrics = await prisma.$metrics.prometheus();
+  // res.status(200).end(metrics);
 });
 
 app.use('/api/recipes', recipesRoute);
