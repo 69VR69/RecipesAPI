@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema'
+import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema.js'
 
 export const StepUpdateManyMutationInputSchemaObject = {
     description: Joi.alternatives().try(Joi.string(),

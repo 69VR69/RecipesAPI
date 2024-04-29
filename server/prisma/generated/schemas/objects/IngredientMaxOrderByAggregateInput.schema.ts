@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema.js'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js.js'
 
 export const IngredientMaxOrderByAggregateInputSchemaObject = {
     id: SortOrderSchema,

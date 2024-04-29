@@ -1,9 +1,9 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IngredientCreateWithoutStepInputSchemaObject } from './IngredientCreateWithoutStepInput.schema';
-import { IngredientUncheckedCreateWithoutStepInputSchemaObject } from './IngredientUncheckedCreateWithoutStepInput.schema';
-import { IngredientCreateOrConnectWithoutStepInputSchemaObject } from './IngredientCreateOrConnectWithoutStepInput.schema';
-import { IngredientWhereUniqueInputSchemaObject } from './IngredientWhereUniqueInput.schema'
+import { IngredientCreateWithoutStepInputSchemaObject } from './IngredientCreateWithoutStepInput.schema.js';
+import { IngredientUncheckedCreateWithoutStepInputSchemaObject } from './IngredientUncheckedCreateWithoutStepInput.schema.js';
+import { IngredientCreateOrConnectWithoutStepInputSchemaObject } from './IngredientCreateOrConnectWithoutStepInput.schema.js';
+import { IngredientWhereUniqueInputSchemaObject } from './IngredientWhereUniqueInput.schema.js'
 
 export const IngredientCreateNestedOneWithoutStepInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(IngredientCreateWithoutStepInputSchemaObject),

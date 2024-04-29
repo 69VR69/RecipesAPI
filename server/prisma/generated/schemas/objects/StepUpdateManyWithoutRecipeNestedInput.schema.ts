@@ -1,13 +1,13 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepCreateWithoutRecipeInputSchemaObject } from './StepCreateWithoutRecipeInput.schema';
-import { StepUncheckedCreateWithoutRecipeInputSchemaObject } from './StepUncheckedCreateWithoutRecipeInput.schema';
-import { StepCreateOrConnectWithoutRecipeInputSchemaObject } from './StepCreateOrConnectWithoutRecipeInput.schema';
-import { StepUpsertWithWhereUniqueWithoutRecipeInputSchemaObject } from './StepUpsertWithWhereUniqueWithoutRecipeInput.schema';
-import { StepWhereUniqueInputSchemaObject } from './StepWhereUniqueInput.schema';
-import { StepUpdateWithWhereUniqueWithoutRecipeInputSchemaObject } from './StepUpdateWithWhereUniqueWithoutRecipeInput.schema';
-import { StepUpdateManyWithWhereWithoutRecipeInputSchemaObject } from './StepUpdateManyWithWhereWithoutRecipeInput.schema';
-import { StepScalarWhereInputSchemaObject } from './StepScalarWhereInput.schema'
+import { StepCreateWithoutRecipeInputSchemaObject } from './StepCreateWithoutRecipeInput.schema.js';
+import { StepUncheckedCreateWithoutRecipeInputSchemaObject } from './StepUncheckedCreateWithoutRecipeInput.schema.js';
+import { StepCreateOrConnectWithoutRecipeInputSchemaObject } from './StepCreateOrConnectWithoutRecipeInput.schema.js';
+import { StepUpsertWithWhereUniqueWithoutRecipeInputSchemaObject } from './StepUpsertWithWhereUniqueWithoutRecipeInput.schema.js';
+import { StepWhereUniqueInputSchemaObject } from './StepWhereUniqueInput.schema.js';
+import { StepUpdateWithWhereUniqueWithoutRecipeInputSchemaObject } from './StepUpdateWithWhereUniqueWithoutRecipeInput.schema.js';
+import { StepUpdateManyWithWhereWithoutRecipeInputSchemaObject } from './StepUpdateManyWithWhereWithoutRecipeInput.schema.js';
+import { StepScalarWhereInputSchemaObject } from './StepScalarWhereInput.schema.js'
 
 export const StepUpdateManyWithoutRecipeNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(StepCreateWithoutRecipeInputSchemaObject),

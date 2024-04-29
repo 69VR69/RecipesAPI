@@ -1,10 +1,10 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IntFilterSchemaObject } from './IntFilter.schema';
-import { StepRelationFilterSchemaObject } from './StepRelationFilter.schema';
-import { StepWhereInputSchemaObject } from './StepWhereInput.schema';
-import { IngredientRelationFilterSchemaObject } from './IngredientRelationFilter.schema';
-import { IngredientWhereInputSchemaObject } from './IngredientWhereInput.schema'
+import { IntFilterSchemaObject } from './IntFilter.schema.js';
+import { StepRelationFilterSchemaObject } from './StepRelationFilter.schema.js';
+import { StepWhereInputSchemaObject } from './StepWhereInput.schema.js';
+import { IngredientRelationFilterSchemaObject } from './IngredientRelationFilter.schema.js';
+import { IngredientWhereInputSchemaObject } from './IngredientWhereInput.schema.js'
 
 export const StepIngredientWhereInputSchemaObject = {
     AND: Joi.alternatives().try(Joi.link('#StepIngredientWhereInput'),

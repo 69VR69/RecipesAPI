@@ -1,9 +1,9 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepUpdateWithoutIngredientInputSchemaObject } from './StepUpdateWithoutIngredientInput.schema';
-import { StepUncheckedUpdateWithoutIngredientInputSchemaObject } from './StepUncheckedUpdateWithoutIngredientInput.schema';
-import { StepCreateWithoutIngredientInputSchemaObject } from './StepCreateWithoutIngredientInput.schema';
-import { StepUncheckedCreateWithoutIngredientInputSchemaObject } from './StepUncheckedCreateWithoutIngredientInput.schema'
+import { StepUpdateWithoutIngredientInputSchemaObject } from './StepUpdateWithoutIngredientInput.schema.js';
+import { StepUncheckedUpdateWithoutIngredientInputSchemaObject } from './StepUncheckedUpdateWithoutIngredientInput.schema.js';
+import { StepCreateWithoutIngredientInputSchemaObject } from './StepCreateWithoutIngredientInput.schema.js';
+import { StepUncheckedCreateWithoutIngredientInputSchemaObject } from './StepUncheckedCreateWithoutIngredientInput.schema.js'
 
 export const StepUpsertWithoutIngredientInputSchemaObject = {
     update: Joi.alternatives().try(Joi.object().keys(StepUpdateWithoutIngredientInputSchemaObject),

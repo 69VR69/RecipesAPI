@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IntFilterSchemaObject } from './IntFilter.schema.js'
+import { IntFilterSchemaObject } from './IntFilter.schema.js.js'
 
 export const RecipeIngredientScalarWhereInputSchemaObject = {
     AND: Joi.alternatives().try(Joi.link('#RecipeIngredientScalarWhereInput'),

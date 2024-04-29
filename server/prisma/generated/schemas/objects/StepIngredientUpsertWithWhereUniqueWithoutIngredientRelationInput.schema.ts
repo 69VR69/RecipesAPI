@@ -1,10 +1,10 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepIngredientWhereUniqueInputSchemaObject } from './StepIngredientWhereUniqueInput.schema';
-import { StepIngredientUpdateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUpdateWithoutIngredientRelationInput.schema';
-import { StepIngredientUncheckedUpdateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUncheckedUpdateWithoutIngredientRelationInput.schema';
-import { StepIngredientCreateWithoutIngredientRelationInputSchemaObject } from './StepIngredientCreateWithoutIngredientRelationInput.schema';
-import { StepIngredientUncheckedCreateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUncheckedCreateWithoutIngredientRelationInput.schema'
+import { StepIngredientWhereUniqueInputSchemaObject } from './StepIngredientWhereUniqueInput.schema.js';
+import { StepIngredientUpdateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUpdateWithoutIngredientRelationInput.schema.js';
+import { StepIngredientUncheckedUpdateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUncheckedUpdateWithoutIngredientRelationInput.schema.js';
+import { StepIngredientCreateWithoutIngredientRelationInputSchemaObject } from './StepIngredientCreateWithoutIngredientRelationInput.schema.js';
+import { StepIngredientUncheckedCreateWithoutIngredientRelationInputSchemaObject } from './StepIngredientUncheckedCreateWithoutIngredientRelationInput.schema.js'
 
 export const StepIngredientUpsertWithWhereUniqueWithoutIngredientRelationInputSchemaObject = {
     where: Joi.object().keys(StepIngredientWhereUniqueInputSchemaObject),

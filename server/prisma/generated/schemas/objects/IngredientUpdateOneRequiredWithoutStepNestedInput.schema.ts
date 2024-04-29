@@ -1,12 +1,12 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IngredientCreateWithoutStepInputSchemaObject } from './IngredientCreateWithoutStepInput.schema';
-import { IngredientUncheckedCreateWithoutStepInputSchemaObject } from './IngredientUncheckedCreateWithoutStepInput.schema';
-import { IngredientCreateOrConnectWithoutStepInputSchemaObject } from './IngredientCreateOrConnectWithoutStepInput.schema';
-import { IngredientUpsertWithoutStepInputSchemaObject } from './IngredientUpsertWithoutStepInput.schema';
-import { IngredientWhereUniqueInputSchemaObject } from './IngredientWhereUniqueInput.schema';
-import { IngredientUpdateWithoutStepInputSchemaObject } from './IngredientUpdateWithoutStepInput.schema';
-import { IngredientUncheckedUpdateWithoutStepInputSchemaObject } from './IngredientUncheckedUpdateWithoutStepInput.schema'
+import { IngredientCreateWithoutStepInputSchemaObject } from './IngredientCreateWithoutStepInput.schema.js';
+import { IngredientUncheckedCreateWithoutStepInputSchemaObject } from './IngredientUncheckedCreateWithoutStepInput.schema.js';
+import { IngredientCreateOrConnectWithoutStepInputSchemaObject } from './IngredientCreateOrConnectWithoutStepInput.schema.js';
+import { IngredientUpsertWithoutStepInputSchemaObject } from './IngredientUpsertWithoutStepInput.schema.js';
+import { IngredientWhereUniqueInputSchemaObject } from './IngredientWhereUniqueInput.schema.js';
+import { IngredientUpdateWithoutStepInputSchemaObject } from './IngredientUpdateWithoutStepInput.schema.js';
+import { IngredientUncheckedUpdateWithoutStepInputSchemaObject } from './IngredientUncheckedUpdateWithoutStepInput.schema.js'
 
 export const IngredientUpdateOneRequiredWithoutStepNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(IngredientCreateWithoutStepInputSchemaObject),

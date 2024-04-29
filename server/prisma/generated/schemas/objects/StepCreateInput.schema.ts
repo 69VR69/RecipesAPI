@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeCreateNestedOneWithoutStepInputSchemaObject } from './RecipeCreateNestedOneWithoutStepInput.schema';
-import { StepIngredientCreateNestedManyWithoutStepRelationInputSchemaObject } from './StepIngredientCreateNestedManyWithoutStepRelationInput.schema'
+import { RecipeCreateNestedOneWithoutStepInputSchemaObject } from './RecipeCreateNestedOneWithoutStepInput.schema.js';
+import { StepIngredientCreateNestedManyWithoutStepRelationInputSchemaObject } from './StepIngredientCreateNestedManyWithoutStepRelationInput.schema.js'
 
 export const StepCreateInputSchemaObject = {
     description: Joi.string().required(),

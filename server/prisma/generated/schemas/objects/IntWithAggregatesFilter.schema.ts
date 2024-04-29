@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { NestedIntWithAggregatesFilterSchemaObject } from './NestedIntWithAggregatesFilter.schema.js';
-import { NestedIntFilterSchemaObject } from './NestedIntFilter.schema.js';
-import { NestedFloatFilterSchemaObject } from './NestedFloatFilter.schema.js'
+import { NestedIntWithAggregatesFilterSchemaObject } from './NestedIntWithAggregatesFilter.schema.js.js';
+import { NestedIntFilterSchemaObject } from './NestedIntFilter.schema.js.js';
+import { NestedFloatFilterSchemaObject } from './NestedFloatFilter.schema.js.js'
 
 export const IntWithAggregatesFilterSchemaObject = {
     equals: Joi.number(),

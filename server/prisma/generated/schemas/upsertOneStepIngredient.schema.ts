@@ -1,4 +1,4 @@
 import Joi from 'joi';
-import { StepIngredientWhereUniqueInputSchemaObject, StepIngredientCreateInputSchemaObject, StepIngredientUpdateInputSchemaObject } from './objects'
+import { StepIngredientWhereUniqueInputSchemaObject, StepIngredientCreateInputSchemaObject, StepIngredientUpdateInputSchemaObject } from './objects/index.js'
 
 export const StepIngredientUpsertSchema = Joi.object().keys({ where: Joi.object().keys(StepIngredientWhereUniqueInputSchemaObject), data: Joi.object().keys(StepIngredientCreateInputSchemaObject), update: Joi.object().keys(StepIngredientUpdateInputSchemaObject)  }).required()

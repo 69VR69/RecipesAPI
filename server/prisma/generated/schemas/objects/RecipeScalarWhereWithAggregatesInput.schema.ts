@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IntWithAggregatesFilterSchemaObject } from './IntWithAggregatesFilter.schema.js';
-import { StringWithAggregatesFilterSchemaObject } from './StringWithAggregatesFilter.schema.js'
+import { IntWithAggregatesFilterSchemaObject } from './IntWithAggregatesFilter.schema.js.js';
+import { StringWithAggregatesFilterSchemaObject } from './StringWithAggregatesFilter.schema.js.js'
 
 export const RecipeScalarWhereWithAggregatesInputSchemaObject = {
     AND: Joi.alternatives().try(Joi.link('#RecipeScalarWhereWithAggregatesInput'),

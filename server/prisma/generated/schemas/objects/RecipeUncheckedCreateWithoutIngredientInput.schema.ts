@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepUncheckedCreateNestedManyWithoutRecipeInputSchemaObject } from './StepUncheckedCreateNestedManyWithoutRecipeInput.schema'
+import { StepUncheckedCreateNestedManyWithoutRecipeInputSchemaObject } from './StepUncheckedCreateNestedManyWithoutRecipeInput.schema.js'
 
 export const RecipeUncheckedCreateWithoutIngredientInputSchemaObject = {
     id: Joi.number(),

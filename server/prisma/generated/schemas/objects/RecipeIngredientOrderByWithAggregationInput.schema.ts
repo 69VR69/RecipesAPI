@@ -1,11 +1,11 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema.js';
-import { RecipeIngredientCountOrderByAggregateInputSchemaObject } from './RecipeIngredientCountOrderByAggregateInput.schema.js';
-import { RecipeIngredientAvgOrderByAggregateInputSchemaObject } from './RecipeIngredientAvgOrderByAggregateInput.schema.js';
-import { RecipeIngredientMaxOrderByAggregateInputSchemaObject } from './RecipeIngredientMaxOrderByAggregateInput.schema.js';
-import { RecipeIngredientMinOrderByAggregateInputSchemaObject } from './RecipeIngredientMinOrderByAggregateInput.schema.js';
-import { RecipeIngredientSumOrderByAggregateInputSchemaObject } from './RecipeIngredientSumOrderByAggregateInput.schema.js'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js.js';
+import { RecipeIngredientCountOrderByAggregateInputSchemaObject } from './RecipeIngredientCountOrderByAggregateInput.schema.js.js';
+import { RecipeIngredientAvgOrderByAggregateInputSchemaObject } from './RecipeIngredientAvgOrderByAggregateInput.schema.js.js';
+import { RecipeIngredientMaxOrderByAggregateInputSchemaObject } from './RecipeIngredientMaxOrderByAggregateInput.schema.js.js';
+import { RecipeIngredientMinOrderByAggregateInputSchemaObject } from './RecipeIngredientMinOrderByAggregateInput.schema.js.js';
+import { RecipeIngredientSumOrderByAggregateInputSchemaObject } from './RecipeIngredientSumOrderByAggregateInput.schema.js.js'
 
 export const RecipeIngredientOrderByWithAggregationInputSchemaObject = {
     ingredient: SortOrderSchema,

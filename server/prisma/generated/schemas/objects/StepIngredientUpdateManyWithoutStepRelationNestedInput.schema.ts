@@ -1,13 +1,13 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepIngredientCreateWithoutStepRelationInputSchemaObject } from './StepIngredientCreateWithoutStepRelationInput.schema';
-import { StepIngredientUncheckedCreateWithoutStepRelationInputSchemaObject } from './StepIngredientUncheckedCreateWithoutStepRelationInput.schema';
-import { StepIngredientCreateOrConnectWithoutStepRelationInputSchemaObject } from './StepIngredientCreateOrConnectWithoutStepRelationInput.schema';
-import { StepIngredientUpsertWithWhereUniqueWithoutStepRelationInputSchemaObject } from './StepIngredientUpsertWithWhereUniqueWithoutStepRelationInput.schema';
-import { StepIngredientWhereUniqueInputSchemaObject } from './StepIngredientWhereUniqueInput.schema';
-import { StepIngredientUpdateWithWhereUniqueWithoutStepRelationInputSchemaObject } from './StepIngredientUpdateWithWhereUniqueWithoutStepRelationInput.schema';
-import { StepIngredientUpdateManyWithWhereWithoutStepRelationInputSchemaObject } from './StepIngredientUpdateManyWithWhereWithoutStepRelationInput.schema';
-import { StepIngredientScalarWhereInputSchemaObject } from './StepIngredientScalarWhereInput.schema'
+import { StepIngredientCreateWithoutStepRelationInputSchemaObject } from './StepIngredientCreateWithoutStepRelationInput.schema.js';
+import { StepIngredientUncheckedCreateWithoutStepRelationInputSchemaObject } from './StepIngredientUncheckedCreateWithoutStepRelationInput.schema.js';
+import { StepIngredientCreateOrConnectWithoutStepRelationInputSchemaObject } from './StepIngredientCreateOrConnectWithoutStepRelationInput.schema.js';
+import { StepIngredientUpsertWithWhereUniqueWithoutStepRelationInputSchemaObject } from './StepIngredientUpsertWithWhereUniqueWithoutStepRelationInput.schema.js';
+import { StepIngredientWhereUniqueInputSchemaObject } from './StepIngredientWhereUniqueInput.schema.js';
+import { StepIngredientUpdateWithWhereUniqueWithoutStepRelationInputSchemaObject } from './StepIngredientUpdateWithWhereUniqueWithoutStepRelationInput.schema.js';
+import { StepIngredientUpdateManyWithWhereWithoutStepRelationInputSchemaObject } from './StepIngredientUpdateManyWithWhereWithoutStepRelationInput.schema.js';
+import { StepIngredientScalarWhereInputSchemaObject } from './StepIngredientScalarWhereInput.schema.js'
 
 export const StepIngredientUpdateManyWithoutStepRelationNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(StepIngredientCreateWithoutStepRelationInputSchemaObject),

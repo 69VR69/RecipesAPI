@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema';
-import { RecipeIngredientOrderByRelationAggregateInputSchemaObject } from './RecipeIngredientOrderByRelationAggregateInput.schema';
-import { StepOrderByRelationAggregateInputSchemaObject } from './StepOrderByRelationAggregateInput.schema'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js';
+import { RecipeIngredientOrderByRelationAggregateInputSchemaObject } from './RecipeIngredientOrderByRelationAggregateInput.schema.js';
+import { StepOrderByRelationAggregateInputSchemaObject } from './StepOrderByRelationAggregateInput.schema.js'
 
 export const RecipeOrderByWithRelationInputSchemaObject = {
     id: SortOrderSchema,

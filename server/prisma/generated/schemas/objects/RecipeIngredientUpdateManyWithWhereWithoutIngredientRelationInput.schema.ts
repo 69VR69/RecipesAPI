@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { RecipeIngredientScalarWhereInputSchemaObject } from './RecipeIngredientScalarWhereInput.schema.js';
-import { RecipeIngredientUpdateManyMutationInputSchemaObject } from './RecipeIngredientUpdateManyMutationInput.schema.js';
-import { RecipeIngredientUncheckedUpdateManyWithoutRecipeInputSchemaObject } from './RecipeIngredientUncheckedUpdateManyWithoutRecipeInput.schema.js'
+import { RecipeIngredientScalarWhereInputSchemaObject } from './RecipeIngredientScalarWhereInput.schema.js.js';
+import { RecipeIngredientUpdateManyMutationInputSchemaObject } from './RecipeIngredientUpdateManyMutationInput.schema.js.js';
+import { RecipeIngredientUncheckedUpdateManyWithoutRecipeInputSchemaObject } from './RecipeIngredientUncheckedUpdateManyWithoutRecipeInput.schema.js.js'
 
 export const RecipeIngredientUpdateManyWithWhereWithoutIngredientRelationInputSchemaObject = {
     where: Joi.object().keys(RecipeIngredientScalarWhereInputSchemaObject),

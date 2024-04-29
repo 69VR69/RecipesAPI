@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepWhereUniqueInputSchemaObject } from './StepWhereUniqueInput.schema';
-import { StepCreateWithoutIngredientInputSchemaObject } from './StepCreateWithoutIngredientInput.schema';
-import { StepUncheckedCreateWithoutIngredientInputSchemaObject } from './StepUncheckedCreateWithoutIngredientInput.schema'
+import { StepWhereUniqueInputSchemaObject } from './StepWhereUniqueInput.schema.js';
+import { StepCreateWithoutIngredientInputSchemaObject } from './StepCreateWithoutIngredientInput.schema.js';
+import { StepUncheckedCreateWithoutIngredientInputSchemaObject } from './StepUncheckedCreateWithoutIngredientInput.schema.js'
 
 export const StepCreateOrConnectWithoutIngredientInputSchemaObject = {
     where: Joi.object().keys(StepWhereUniqueInputSchemaObject),

@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema';
-import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema';
-import { StepUncheckedUpdateManyWithoutRecipeNestedInputSchemaObject } from './StepUncheckedUpdateManyWithoutRecipeNestedInput.schema'
+import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema.js';
+import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema.js';
+import { StepUncheckedUpdateManyWithoutRecipeNestedInputSchemaObject } from './StepUncheckedUpdateManyWithoutRecipeNestedInput.schema.js'
 
 export const RecipeUncheckedUpdateWithoutIngredientInputSchemaObject = {
     id: Joi.alternatives().try(Joi.number(),

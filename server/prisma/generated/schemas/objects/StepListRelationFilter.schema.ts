@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { StepWhereInputSchemaObject } from './StepWhereInput.schema'
+import { StepWhereInputSchemaObject } from './StepWhereInput.schema.js'
 
 export const StepListRelationFilterSchemaObject = {
     every: Joi.object().keys(StepWhereInputSchemaObject),

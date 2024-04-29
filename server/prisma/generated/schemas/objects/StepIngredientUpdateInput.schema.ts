@@ -1,8 +1,8 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema';
-import { StepUpdateOneRequiredWithoutIngredientNestedInputSchemaObject } from './StepUpdateOneRequiredWithoutIngredientNestedInput.schema';
-import { IngredientUpdateOneRequiredWithoutStepNestedInputSchemaObject } from './IngredientUpdateOneRequiredWithoutStepNestedInput.schema'
+import { IntFieldUpdateOperationsInputSchemaObject } from './IntFieldUpdateOperationsInput.schema.js';
+import { StepUpdateOneRequiredWithoutIngredientNestedInputSchemaObject } from './StepUpdateOneRequiredWithoutIngredientNestedInput.schema.js';
+import { IngredientUpdateOneRequiredWithoutStepNestedInputSchemaObject } from './IngredientUpdateOneRequiredWithoutStepNestedInput.schema.js'
 
 export const StepIngredientUpdateInputSchemaObject = {
     number: Joi.alternatives().try(Joi.number(),

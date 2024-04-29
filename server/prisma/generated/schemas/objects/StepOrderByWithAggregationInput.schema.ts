@@ -1,11 +1,11 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { SortOrderSchema } from '../enums/SortOrder.schema';
-import { StepCountOrderByAggregateInputSchemaObject } from './StepCountOrderByAggregateInput.schema';
-import { StepAvgOrderByAggregateInputSchemaObject } from './StepAvgOrderByAggregateInput.schema';
-import { StepMaxOrderByAggregateInputSchemaObject } from './StepMaxOrderByAggregateInput.schema';
-import { StepMinOrderByAggregateInputSchemaObject } from './StepMinOrderByAggregateInput.schema';
-import { StepSumOrderByAggregateInputSchemaObject } from './StepSumOrderByAggregateInput.schema'
+import { SortOrderSchema } from '../enums/SortOrder.schema.js';
+import { StepCountOrderByAggregateInputSchemaObject } from './StepCountOrderByAggregateInput.schema.js';
+import { StepAvgOrderByAggregateInputSchemaObject } from './StepAvgOrderByAggregateInput.schema.js';
+import { StepMaxOrderByAggregateInputSchemaObject } from './StepMaxOrderByAggregateInput.schema.js';
+import { StepMinOrderByAggregateInputSchemaObject } from './StepMinOrderByAggregateInput.schema.js';
+import { StepSumOrderByAggregateInputSchemaObject } from './StepSumOrderByAggregateInput.schema.js'
 
 export const StepOrderByWithAggregationInputSchemaObject = {
     id: SortOrderSchema,
