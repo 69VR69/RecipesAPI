@@ -1,6 +1,6 @@
 import express from 'express';
+import { IngredientIdValidator, IngredientValidator } from '../../prisma/validators/ingredientValidator.js';
 import { IngredientService } from '../services/ingredientService.js';
-import { IngredientIdValidator, IngredientValidator } from './ingredientValidator.js';
 import { IngredientsWithoutId } from '../types.js';
 
 const router = express.Router();

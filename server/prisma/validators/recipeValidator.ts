@@ -1,5 +1,5 @@
 import Joi from "joi"
-import { IngredientValidator } from "../../ingredients/routes/ingredientValidator.js"
+import { IngredientValidator } from "./ingredientValidator.js"
 
 /* RECIPES */
 

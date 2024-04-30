@@ -1,7 +1,7 @@
 import express from 'express';
+import { RecipeIdValidator, RecipeValidator } from '../../prisma/validators/recipeValidator.js';
 import { RecipeService } from '../services/recipeService.js';
-import { RecipeValidator, RecipeIdValidator } from './recipeValidator.js';
-import stepRoute from '../steps/routes/stepRoute.js'
+import stepRoute from '../steps/routes/stepRoute.js';
 
 const router = express.Router();
 const recipeService = new RecipeService();
