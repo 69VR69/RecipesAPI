@@ -1,7 +1,7 @@
 import express from 'express';
 import { RecipeService } from '../services/recipeService.js';
 import Joi from 'joi';
-import { RecipeCreateSchema } from './recipeValidator.js';
+import { RecipeValidator, RecipeIdValidator } from './recipeValidator.js';
 
 const router = express.Router();
 const recipeService = new RecipeService();
@@ -16,7 +16,7 @@ router.post('/', (req, rep) => {
     let recipe = req.body;
 
     // Validate the recipe
-    const res = RecipeCreateSchema.validate(recipe)
+    const res = RecipeValidator.validate(recipe)
     if (res.error) {
         rep.status(400).send(res.error.message);
         return;
@@ -44,7 +44,7 @@ router.get('/:id',
         }
 
         // check if the recipe id is a number
-        if (Joi.number().validate(recipeId).error) {
+        if (RecipeIdValidator.validate({ id: recipeId }).error) {
             rep.status(400).send('Recipe ID must be a number');
             return;
         }
@@ -62,14 +62,14 @@ router.put('/:id',
         const recipeId = req.params.id;
 
         // Validate the recipe
-        const res = RecipeCreateSchema.validate(recipe)
+        const res = RecipeValidator.validate(recipe)
         if (res.error) {
             rep.status(400).send(res.error.message);
             return;
         }
 
         // check if the recipe id is a number
-        if (Joi.number().validate(recipeId).error) {
+        if (RecipeIdValidator.validate({ id: recipeId }).error) {
             rep.status(400).send('Recipe ID must be a number');
             return;
         }
@@ -93,7 +93,7 @@ router.delete('/:id',
         const recipeId = req.params.id;
 
         // check if the recipe id is a number
-        if (Joi.number().validate(recipeId).error) {
+        if (RecipeIdValidator.validate({ id: recipeId }).error) {
             rep.status(400).send('Recipe ID must be a number');
             return;
         }
@@ -111,7 +111,7 @@ router.delete('/:id',
     }
 );
 
-// TODO
+// TODO: Implement the following routes
 // GET /api/recipes/<ID>/steps - get step of a recipe
 router.get('/:id/steps', );
 

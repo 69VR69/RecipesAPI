@@ -19,9 +19,9 @@ model Ingredient {
   name     String
   category String
   season   Int
+  seasonRelation Season @relation(fields: [season], references: [id])
   recipe   RecipeIngredient[]
   step   StepIngredient[]
-  seasonRelation Season @relation(fields: [season], references: [id])
 }
 
 model Step {
@@ -29,7 +29,6 @@ model Step {
   description String 
   recipeId Int
   recipe Recipe @relation(fields: [recipeId], references: [id])
-
   ingredient StepIngredient[]
 }
 
@@ -44,7 +43,7 @@ model RecipeIngredient {
   ingredient         Int
   recipe             Int
   number             Int
-  reciepRelation     Recipe     @relation(fields: [recipe], references: [id])
+  recipeRelation     Recipe     @relation(fields: [recipe], references: [id])
   ingredientRelation Ingredient @relation(fields: [ingredient], references: [id])
 
   @@id([ingredient, recipe])

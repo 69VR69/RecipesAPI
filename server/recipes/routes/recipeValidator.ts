@@ -1,12 +1,52 @@
 import Joi from "joi"
+import { IngredientValidator } from "../../ingredients/routes/ingredientValidator.js"
 
-// TODO : this one is probably false but it's a template
-export const RecipeCreateSchema = Joi.object().keys({
-    data: Joi.object().keys({
-        name: Joi.string().required(),
-        description: Joi.string().required(),
-        ingredients: Joi.array().items(Joi.string()).required(),
-        steps: Joi.array().items(Joi.string()).required(),
-        imageUrl: Joi.string().uri().required(),
+
+/* STEPS */
+
+// Joi validatior for the step using prisma schema
+export const StepValidator = Joi.object
+    ({
+        description : Joi.string().required(),
+        recipeId : Joi.number().required()
     })
-}).required()
+
+// Joi validatior for the step ID
+export const StepIdValidator = Joi.object
+    ({
+        id : Joi.number().required()
+    })
+
+/* STEP INGREDIENTS */
+
+// Joi validatior for the step ingredient using prisma schema
+export const StepIngredientValidator = Joi.object
+    ({
+        ingredient : Joi.valid(IngredientValidator).required(),
+        step: Joi.valid(StepValidator).required(),
+        number : Joi.number().required(),
+    })
+
+/* RECIPES */
+
+// Joi validatior for the recipe using prisma schema
+export const RecipeValidator = Joi.object
+    ({
+        name : Joi.string().required()
+    })
+
+// Joi validatior for the recipe ID
+export const RecipeIdValidator = Joi.object
+    ({
+        id : Joi.number().required()
+    })
+
+/* RECIPE INGREDIENTS */
+
+// Joi validatior for the recipe ingredient using prisma schema
+export const RecipeIngredientValidator = Joi.object
+    ({
+        ingredient : Joi.valid(IngredientValidator).required(),
+        recipe: Joi.valid(RecipeValidator).required(),
+        number : Joi.number().required(),
+    })
