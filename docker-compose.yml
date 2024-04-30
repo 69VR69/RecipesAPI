@@ -42,9 +42,11 @@ services:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
       - ./grafana/provisioner.yaml:/etc/grafana/provisioning/dashboards/main.yaml
       - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana-storage:/var/lib/grafana
     ports:
       - 3000:3000
 
 volumes:
+  grafana-storage:
   prometheus-storage:
-  prisma-storage: 
+  prisma-storage:
