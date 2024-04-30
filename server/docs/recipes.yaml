@@ -23,7 +23,7 @@ paths:
           schema:
             type: integer
             minimum: 1
-        - name: limit
+        - name: pageSize
           in: query
           description: Number of items per page
           required: false
