@@ -33,7 +33,7 @@ export class StepService {
 
 
     //update a step
-    public async updateStep(req: any, res: Response){
+    public async updateStep(req: any, res: Response ){
         const recipeId = req.rid;
         try {
             await stepRepository.updateStep(req,res,recipeId)
