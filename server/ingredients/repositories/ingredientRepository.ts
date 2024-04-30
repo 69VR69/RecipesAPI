@@ -21,7 +21,18 @@ export class IngredientRepository{
 
     // Get all ingredients
     public async getIngredients(req: Request<Ingredients>, res: Response) {
-        const ingredients = await prisma.ingredient.findMany({});
+        const recipeId = parseInt(req.query.recipeId as string | undefined);
+
+        const ingredients = await prisma.ingredient
+        .findMany({include: {recipe : true}})
+        .then((ingredients) => {
+            if(recipeId){
+                return ingredients
+                .filter((ingredient) => ingredient.recipe.some((recipe) => recipe.recipe === recipeId));
+            }
+            return ingredients;
+        });
+
         res.json(ingredients);
     }
 

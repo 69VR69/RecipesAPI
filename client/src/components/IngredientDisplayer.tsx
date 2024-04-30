@@ -5,16 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 import { Ingredient } from "../models/Ingredient";
 import { SERVER_ADDRESS } from "../CONSTANTS";
 
-export function IngredientDisplayer()
-{
+export function IngredientDisplayer({ recipeId }: { recipeId: number }) {
     const [nbPersons, setNbPersons] = useState(1);
 
     async function fetchIngredients() {
-        const response = await fetch(SERVER_ADDRESS+"/ingredients");
+        const response = await fetch(SERVER_ADDRESS + "/ingredients?recipeId=" + recipeId);
         return await response.json();
     }
-    
-    const { isLoading, error, data } = useQuery({queryKey: ["ingredients"], queryFn: fetchIngredients});
+
+    const { isLoading, error, data } = useQuery({ queryKey: ["ingredients"], queryFn: fetchIngredients });
 
     if (isLoading) return <div>Loading...</div>;
 
@@ -23,10 +22,10 @@ export function IngredientDisplayer()
     return (
         <div>
             <h2>Ingredients</h2>
-            <QuantitySelector nbPersons={nbPersons} setNbPersons={setNbPersons}/>
+            <QuantitySelector nbPersons={nbPersons} setNbPersons={setNbPersons} />
             <ul className="mrtn-recette_ingredients-items">
                 {data && data.map((ingredient: Ingredient) => (
-                    <IngredientCard key={ingredient.id} ingredient={ingredient} nbPersons={nbPersons}/>
+                    <IngredientCard key={ingredient.id} ingredient={ingredient} nbPersons={nbPersons} />
                 ))}
             </ul>
         </div>

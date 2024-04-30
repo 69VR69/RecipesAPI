@@ -11,7 +11,7 @@ export function RecipeManage()
     return (
         <div>
             <h1>Recipes Manage of {parsedRecipeId}</h1>
-            <IngredientDisplayer />
+            <IngredientDisplayer recipeId={parsedRecipeId} />
             <StepDisplayer recipeId={parsedRecipeId}/>
         </div>
     )

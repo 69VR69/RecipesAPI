@@ -7,7 +7,6 @@ const ingredientService = new IngredientService();
 // GET /api/ingredients - Get all ingredients //si base vide alors on renvoie un []
 router.get('/', ingredientService.getIngredients);
 
-
 //GET /api/ingredients/1 - get an ingredient by id 
 router.get('/:id', ingredientService.getIngredient);
 
