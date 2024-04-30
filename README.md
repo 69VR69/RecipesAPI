@@ -55,6 +55,23 @@ npm run dev
 
 The client will start at http://localhost:2400.
 
+#### Prisma
+
+To update the database schema use the command
+```bash
+npm run update-schema
+```
+
+To seed the database use the command
+```bash
+npx prisma schema seed
+```
+
+To visualize the database's data, use the command
+```bash
+npm run visualize-schema
+```
+
 ### Dockermore
 
 1. 
@@ -80,20 +97,3 @@ docker compose up
 The client will start at http://localhost:2400.
 Grafana will start at http://localhost:3000.
 Prometheus will start at http://localhost:9090.
-
-# Prisma
-
-To update the database schema use the command
-```bash
-npm run update-schema
-```
-
-To seed the database use the command
-```bash
-npx prisma schema seed
-```
-
-To visualize the database's data, use the command
-```bash
-npm run visualize-schema
-```
