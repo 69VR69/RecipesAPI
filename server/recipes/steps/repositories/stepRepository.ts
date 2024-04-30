@@ -25,8 +25,12 @@ export class StepRepository{
     }
 
     // Get all steps
-    public async getSteps(req: Request<StepWithIngredients>, res: Response) {
-        const steps = await prisma.step.findMany({});
+    public async getSteps(req: Request<StepWithIngredients>, res: Response, recipeId: number) {
+        const steps = await prisma.step.findMany({
+            where: {
+                recipeId: +recipeId,
+            },
+        });
         res.json(steps);
     }
 

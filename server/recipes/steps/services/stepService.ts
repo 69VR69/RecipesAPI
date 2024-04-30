@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { StepRepository } from '../repositories/stepRepository.js'
 import { StepWithIngredients } from '../types.js';
+import { Console } from 'console';
 
 const stepRepository = new StepRepository();
 
@@ -10,7 +11,9 @@ export class StepService {
     // Get all step
     public async getSteps(req: Request<StepWithIngredients>, res: Response) {
         try {
-            const step = await stepRepository.getSteps(req,res);
+            console.log(req.params);
+            const recipeId = rid;
+            const step = await stepRepository.getSteps(req,res,recipeId);
             res.status(200).json(step)
         }
         catch (error : any) {
@@ -56,7 +59,8 @@ export class StepService {
 
     // Create a new step
     async createStep(req: Request<StepWithIngredients>, res: Response) {
-        const { description, ingredient, recipeId }: StepWithIngredients = req.body;
+        const { description, ingredient }: StepWithIngredients = req.body;
+        const recipeId = req.params.recipeId;
         try {
             const newIngrdedient= await stepRepository.createStep({ description, ingredient, recipeId });
         res.status(201).json(newIngrdedient)
