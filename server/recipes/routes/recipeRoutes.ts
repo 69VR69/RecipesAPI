@@ -1,9 +1,7 @@
 import express from 'express';
 import { RecipeService } from '../services/recipeService.js';
-import Joi from 'joi';
 import { RecipeValidator, RecipeIdValidator } from './recipeValidator.js';
-import { StepService } from '../steps/services/stepService.js';
-import recipesRoute from '../steps/routes/stepRoute.js'
+import stepRoute from '../steps/routes/stepRoute.js'
 
 const router = express.Router();
 const recipeService = new RecipeService();
@@ -11,10 +9,10 @@ const recipeService = new RecipeService();
 // GET /api/recipes - Get all recipes
 router.get('/', (req, resp) => {
     recipeService.getRecipes(req, resp)
-    .then((recipes) => {
-        resp.status(200).json(recipes);
-    }
-    )
+        .then((recipes) => {
+            resp.status(200).json(recipes);
+        }
+        )
 });
 
 // POST /api/recipes - Create a new recipe
@@ -117,27 +115,10 @@ router.delete('/:id',
     }
 );
 
-// // TODO: Implement the following routes
-// // GET /api/recipes/<ID>/steps - get step of a recipe
-// router.get('/:id/steps', );
-
-// // POST /api/recipes/<ID>/steps - Add step to a recipe
-// router.post('/:id/steps',);
-
-// // GET /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Get a step of a recipe
-// router.get('/:id/steps/:stepId',);
-
-// // PUT /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Update step of a recipe 
-// router.put('/:id/steps/:stepId',);
-
-// // DELETE /api/recipes/<RECIPE_ID>/steps/<STEP_ID> - Delete step of a recipe 
-// router.delete('/:id/steps/:stepId',)
-
-
 //router.use('/:recipeId/step', recipesRoute);
-router.use('/:recipeId/steps', function(req : any, res, next) {
+router.use('/:recipeId/steps', function (req: any, res, next) {
     req.rid = req.params.recipeId;
     next()
-  }, recipesRoute);
+}, stepRoute);
 
 export default router;
