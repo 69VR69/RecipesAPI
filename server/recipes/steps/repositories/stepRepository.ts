@@ -11,7 +11,7 @@ export class StepRepository{
         const newStep = await prisma.step.create({
             data: {
                 description,
-                recipeId,
+                recipeId : +recipeId,
                 ingredient: {
                     create: ingredient
                 }
@@ -46,20 +46,22 @@ export class StepRepository{
     }
 
     // Update an Step
-    public async updateStep(req: Request<StepWithIngredients>, res: Response) {
+    public async updateStep(req: Request<StepWithIngredients>, res: Response,rid :number) {
         const { id } = req.params;
-        const { description, ingredients,recipeId } = req.body;
+        const { description, ingredients } = req.body;
+        const recipeId = +rid;
         const updatedStep = await prisma.step.update({
             where: {
                 id: +id
             },
             data: {
-                description,
-                recipeId,
+                description : description,
+                recipeId: +recipeId,
                 ingredient: {
                     deleteMany: {},
-                    create: ingredients
-                }
+                    create: ingredients,
+                }, 
+                 
             }
         });
         res.json(updatedStep);

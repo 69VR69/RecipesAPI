@@ -136,8 +136,8 @@ router.delete('/:id',
 
 //router.use('/:recipeId/step', recipesRoute);
 router.use('/:recipeId/steps', function(req : any, res, next) {
-    var rid = req.params.recipeId;
-    next(rid)
+    req.rid = req.params.recipeId;
+    next()
   }, recipesRoute);
 
 export default router;

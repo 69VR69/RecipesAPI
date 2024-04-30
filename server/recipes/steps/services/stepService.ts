@@ -9,10 +9,10 @@ export class StepService {
 
 
     // Get all step
-    public async getSteps(req: Request<StepWithIngredients>, res: Response) {
+    public async getSteps(req: any, res: Response) {
         try {
-            console.log(req.params);
-            const recipeId = rid;
+            //console.log(req.params);
+            const recipeId = req.rid;
             const step = await stepRepository.getSteps(req,res,recipeId);
             res.status(200).json(step)
         }
@@ -22,7 +22,8 @@ export class StepService {
     }
 
     // Get an step by id
-    public async getStep(req: Request<StepWithIngredients>, res: Response) {
+    public async getStep(req: any, res: Response) {
+        const recipeId = req.rid;
         try {
             const step = await stepRepository.getStep(req,res);
             res.status(200).json(step)
@@ -34,9 +35,10 @@ export class StepService {
 
 
     //update a step
-    public async updateStep(req: Request<StepWithIngredients>, res: Response){
+    public async updateStep(req: any, res: Response){
+        const recipeId = req.rid;
         try {
-            await stepRepository.updateStep(req,res)
+            await stepRepository.updateStep(req,res,recipeId)
             res.status(204).json({msg: "Successfully update step " + req.params.id})
         }
         catch (error : any){
@@ -46,7 +48,7 @@ export class StepService {
 
 
     //delete a step 
-    public async deleteStep(req: Request<StepWithIngredients>, res: Response){
+    public async deleteStep(req: any, res: Response){
         try {
             await stepRepository.deleteStep(req,res)
             res.status(204).json({msg: "Successfully deleted step " + req.params.id})
@@ -58,9 +60,9 @@ export class StepService {
 
 
     // Create a new step
-    async createStep(req: Request<StepWithIngredients>, res: Response) {
+    async createStep(req: any, res: Response) {
         const { description, ingredient }: StepWithIngredients = req.body;
-        const recipeId = req.params.recipeId;
+        const recipeId = req.rid;
         try {
             const newIngrdedient= await stepRepository.createStep({ description, ingredient, recipeId });
         res.status(201).json(newIngrdedient)
