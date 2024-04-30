@@ -2,10 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator joi {
-  provider = "prisma-joi-generator"
-}
-
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"

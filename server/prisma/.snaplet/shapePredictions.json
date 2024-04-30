@@ -42,7 +42,7 @@
       {
         "input": " season label",
         "column": "label",
-        "shape": "AI_LABEL",
+        "shape": "SEASON_LABEL",
         "confidence": 0.4804392158985138,
         "context": "GENERAL",
         "confidenceContext": 0

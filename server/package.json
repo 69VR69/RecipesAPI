@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js",
-    "update-schema": "npx prisma migrate dev --name update-schema && npx tsx ./prisma/generatedJoiPatcher.ts && npx @snaplet/seed sync --config ./prisma/seed.config.ts",
+    "update-schema": "npx prisma migrate dev --name update-schema && npx @snaplet/seed sync --config ./prisma/seed.config.ts",
     "visualize-schema": "npx prisma db pull && npx prisma studio"
   },
   "dependencies": {
@@ -15,7 +15,6 @@
     "cors": "^2.8.5",
     "express": "^4.19.1",
     "joi": "^17.13.0",
-    "prisma-joi-generator": "^0.2.0",
     "tsx": "^4.7.2"
   },
   "devDependencies": {
