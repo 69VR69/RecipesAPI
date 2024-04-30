@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { IngredientRepository } from '../repositories/ingredientRepository.js'
-import { Ingredients } from '../types.js';
+import { Ingredients, IngredientsWithoutId } from '../types.js';
 
 const ingredientRepository = new IngredientRepository();
 
@@ -8,7 +8,7 @@ export class IngredientService {
 
 
     // Get all Ingredient
-    public async getIngredients(req: Request<Ingredients>, res: Response) {
+    public async getIngredients(req: Request, res: Response) {
         try {
             const ingredient = await ingredientRepository.getIngredients(req,res);
             res.status(200).json(ingredient)
@@ -19,10 +19,18 @@ export class IngredientService {
     }
 
     // Get an ingrdient by id
-    public async getIngredient(req: Request<Ingredients>, res: Response) {
+    public async getIngredient(id : number, res: Response) {
         try {
-            const ingredient = await ingredientRepository.getIngredient(req,res);
-            res.status(200).json(ingredient)
+            ingredientRepository.getIngredient(id,res)
+            .then((ingredient) => {
+                if(ingredient === null){
+                    res.status(404).json({error: "Ingredient not found"})
+                }
+                else{
+                    res.status(200).json(ingredient)
+                }
+            })
+            .catch((error) => res.status(500).json({ error: error.message }));
         }
         catch (error : any) {
             res.status(500).json({ error: error.message });
@@ -31,10 +39,10 @@ export class IngredientService {
 
 
     //update an ingrdient 
-    public async updateIngredient(req: Request<Ingredients>, res: Response){
+    public async updateIngredient(id: number, ingredient: IngredientsWithoutId, res: Response){
         try {
-            await ingredientRepository.updateIngredient(req,res)
-            res.status(204).json({msg: "Successfully update ingredient " + req.params.id})
+            await ingredientRepository.updateIngredient(id, ingredient,res)
+            res.status(204).json({msg: "Successfully update ingredient " + id})
         }
         catch (error : any){
             res.status(500).json({error: error.message})
@@ -43,10 +51,10 @@ export class IngredientService {
 
 
     //delete an ingredient 
-    public async deleteIngredient(req: Request<Ingredients>, res: Response){
+    public async deleteIngredient(id : number, res: Response){
         try {
-            await ingredientRepository.deleteIngredient(req,res)
-            res.status(204).json({msg: "Successfully deleted ingredient " + req.params.id})
+            await ingredientRepository.deleteIngredient(id,res)
+            res.status(204).json({msg: "Successfully deleted ingredient " + id})
         }
         catch (error : any){
             res.status(500).json({error: error.message})
@@ -55,10 +63,9 @@ export class IngredientService {
 
 
     // Create a new ingredient
-    async createIngredient(req: Request<Ingredients>, res: Response) {
-        const { name, category, season }: Ingredients = req.body;
+    async createIngredient(ingredient: IngredientsWithoutId, res: Response) {
         try {
-            const newIngrdedient= await ingredientRepository.createIngredient({ name, category, season });
+            const newIngrdedient= await ingredientRepository.createIngredient(ingredient);
         res.status(201).json(newIngrdedient)
         }
         catch (error : any) {

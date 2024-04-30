@@ -6,20 +6,14 @@ const prisma = new PrismaClient();
 
 export class IngredientRepository {
     // Create a new Ingredient
-    public async createIngredient({ name, category, season }: IngredientsWithoutId): Promise<Ingredients> {
-        const newIngredient = await prisma.ingredient.create({
-            data: {
-                name,
-                category,
-                season
-            }
+    public async createIngredient(ingredient: IngredientsWithoutId): Promise<Ingredients> {
+        return await prisma.ingredient.create({
+            data: ingredient
         });
-
-        return newIngredient;
     }
 
     // Get all ingredients
-    public async getIngredients(req: Request<Ingredients>, res: Response) {
+    public async getIngredients(req: Request, res: Response) {
         const recipeId = parseInt(req.query.recipeId as string | undefined);
 
         const ingredients = await prisma.ingredient
@@ -41,43 +35,35 @@ export class IngredientRepository {
     }
 
     // Get an Ingredient
-    public async getIngredient(req: Request<Ingredients>, res: Response) {
-        const { id } = req.params;
-        const ingredient = await prisma.ingredient.findUnique({
-            where: {
-                id: +id
-            }
-        });
-        res.json(ingredient);
+    public async getIngredient(id: number, res: Response) : Promise<void>
+    {
+        await prisma.ingredient
+            .findUnique({where : {id: id}, include: { recipe: true }})
+            .then((ingredients) => res.json(ingredients));
     }
 
     // Update an Ingredient
-    public async updateIngredient(req: Request<Ingredients>, res: Response) {
-        const { id } = req.params;
-        const { name, category, season } = req.body;
-        const updatedIngredient = await prisma.ingredient.update({
+    public async updateIngredient(id:number, ingredient : IngredientsWithoutId, res: Response) : Promise<void>
+    {
+        prisma.ingredient.update({
             where: {
-                id: +id
+                id: id
             },
-            data: {
-                name,
-                category,
-                season
-            }
-        });
-        res.json(updatedIngredient);
+            data: ingredient
+        })
+        .then((updatedIngredient) => res.json(updatedIngredient));
     }
 
 
 
     // Delete an ingredient
-    public async deleteIngredient(req: Request<Ingredients>, res: Response) {
-        const { id } = req.params;
-        const deletedIngredient = await prisma.ingredient.delete({
+    public async deleteIngredient(id : number, res: Response) : Promise<void>
+    {
+        prisma.ingredient.delete({
             where: {
-                id: +id
+                id: id
             }
-        });
-        res.json(deletedIngredient);
+        })
+        .then(() => res.json({msg: "Successfully deleted ingredient " + id}));
     }
 }
