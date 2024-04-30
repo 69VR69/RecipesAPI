@@ -20,6 +20,8 @@ services:
       - 2400:2400
     depends_on:
       - recipes-server
+    extra_hosts:
+      - "host.docker.internal:host-gateway"      
 
   prometheus:
     image: prom/prometheus
