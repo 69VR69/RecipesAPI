@@ -1,12 +1,10 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { StepRepository } from '../repositories/stepRepository.js'
 import { StepWithIngredients } from '../types.js';
-import { Console } from 'console';
 
 const stepRepository = new StepRepository();
 
 export class StepService {
-
 
     // Get all step
     public async getSteps(req: any, res: Response) {
