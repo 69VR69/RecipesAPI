@@ -13,6 +13,8 @@ This project uses the following dependencies:
 
 ## Setup
 
+### Dockerless
+
 1. Clone the repository:
 
 ```bash
@@ -32,15 +34,6 @@ npm install
 cd ./client
 npm install
 ```
--- DOCKER NOT INSTALLED FOR MOMENT --
-4. On you desktop, start docker by using the following command (for linux) :
-
-   ```bash
-   sudo service docker start
-   ```
-
-   Or start docker desktop for windows.
--- DOCKER NOT INSTALLED FOR MOMENT --
 
 5. Running the Server
    To start the server, run:
@@ -62,22 +55,45 @@ npm run dev
 
 The client will start at http://localhost:2400.
 
+### Dockermore
+
+1. 
+   -  Linux: Start Docker if not already running
+      ```bash
+      sudo service docker start
+      ```
+
+   - Windows: Start Docker Desktop.
+
+
+2. Clone the repository
+```bash
+git clone https://github.com/69VR69/RecipesAPI
+```
+
+3. Start the services
+```bash
+docker compose up
+```
+
+4. The Express (APIs) server will start at http://localhost:4200.
+The client will start at http://localhost:2400.
+Grafana will start at http://localhost:3000.
+Prometheus will start at http://localhost:9090.
+
 # Prisma
 
 To update the database schema use the command
-
 ```bash
 npm run update-schema
 ```
 
 To seed the database use the command
-
 ```bash
 npx prisma schema seed
 ```
 
-To visualize the database datas use the command
-
+To visualize the database's data, use the command
 ```bash
 npm run visualize-schema
 ```
