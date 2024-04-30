@@ -8,8 +8,8 @@ export function RecipeList()
     async function fetchRecipes()
     {
         return fetch(SERVER_ADDRESS + '/recipes')
-            .then(res => res.json())
-            .then(data => data as Recipe[]);
+        .then(res => res.json())
+        .then(data => data as Recipe[]);
     }
 
     const { isLoading, error, data } = useQuery({ queryKey: ["recipes"], queryFn: fetchRecipes });
