@@ -9,6 +9,15 @@ const main = async () => {
     await seed.$resetDatabase();
     console.log("Database truncated")
 
+    await seed.Season(
+        [
+            {label: "Winter"},
+            {label: "Spring"},
+            {label: "Summer"},
+            {label: "Autumn"}
+        ], { connect: true }
+    );
+
     await seed.Ingredient((x) => x(10), { connect: true });
     await seed.Recipe((x) => x(10), { connect: true });
     await seed.RecipeIngredient((x) => x(10), { connect: true });

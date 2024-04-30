@@ -13,59 +13,49 @@ export class RecipeService {
             const newRecipe = await recipeRepository.createRecipe({ name, ingredient });
             res.status(201).json(newRecipe)
         }
-        catch (error : any) {
+        catch (error: any) {
             res.status(500).json({ error: error.message });
         }
     }
 
     // Get all recipes
-    public async getRecipes(req: Request<RecipeWithIngredients>, res: Response) {
+    public async getRecipes(req: Request, res: Response) {
         try {
             const recipes = await recipeRepository.getRecipes(req, res);
             res.status(200).json(recipes)
         }
-        catch (error : any) {
+        catch (error: any) {
             res.status(500).json({ error: error.message });
         }
     }
 
     // Get recipe by id
-    public async getRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+    public async getRecipe(id: number, res: Response) {
         try {
-            const recipes = await recipeRepository.getRecipe(req, res)
+            const recipes = await recipeRepository.getRecipe(id, res)
             res.status(200).json(recipes)
         }
-        catch (error : any) {
+        catch (error: any) {
             res.status(500).json({ error: error.message });
         }
     }
 
     // Update recipe
-    public async updateRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+    public async updateRecipe(id: number, req: Request<RecipeWithIngredients>, res: Response) {
         try {
-            await recipeRepository.updateRecipe(req, res)
-            res.status(204).json({msg: "Successfully updated recipe " + req.params.id})
+            await recipeRepository.updateRecipe(id, req, res)
+            res.status(204).json({ msg: "Successfully updated recipe " + id })
         }
-        catch (error : any) {
+        catch (error: any) {
             res.status(500).json({ error: error.message });
         }
     }
 
     // Delete recipe
-    public async deleteRecipe(req: Request<RecipeWithIngredients>, res: Response) {
+    public async deleteRecipe(id: number, res: Response) {
         try {
-            await recipeRepository.deleteRecipe(req, res)
-            res.status(204).json({msg: "Successfully deleted recipe " + req.params.id})
-        }
-        catch (error : any) {
-            res.status(500).json({ error: error.message });
-        }
-    }
-
-    public async cookRecipe(req: Request<RecipeWithIngredients>, res: Response) {
-        try {
-            await recipeRepository.cookRecipe(req, res)
-            res.status(501)
+            await recipeRepository.deleteRecipe(id, res)
+            res.status(204).json({ msg: "Successfully deleted recipe " + id })
         }
         catch (error: any) {
             res.status(500).json({ error: error.message });

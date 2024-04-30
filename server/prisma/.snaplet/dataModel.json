@@ -61,11 +61,43 @@
           "isId": false
         },
         {
+          "name": "Season",
+          "type": "Season",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "IngredientToSeason",
+          "relationFromFields": [
+            "season"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
           "name": "RecipeIngredient",
           "type": "RecipeIngredient",
           "isRequired": false,
           "kind": "object",
           "relationName": "RecipeIngredientToIngredient",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "StepIngredient",
+          "type": "StepIngredient",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "StepIngredientToIngredient",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -123,6 +155,20 @@
           "isRequired": false,
           "kind": "object",
           "relationName": "RecipeIngredientToRecipe",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "Step",
+          "type": "Step",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "StepToRecipe",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -230,6 +276,244 @@
           "fields": [
             "ingredient",
             "recipe"
+          ]
+        }
+      ]
+    },
+    "Season": {
+      "id": "Season",
+      "tableName": "Season",
+      "fields": [
+        {
+          "id": "Season.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "Season_id_seq",
+            "increment": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true
+        },
+        {
+          "id": "Season.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false
+        },
+        {
+          "name": "Ingredient",
+          "type": "Ingredient",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "IngredientToSeason",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "Season_pkey",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "Step": {
+      "id": "Step",
+      "tableName": "Step",
+      "fields": [
+        {
+          "id": "Step.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "Step_id_seq",
+            "increment": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true
+        },
+        {
+          "id": "Step.description",
+          "name": "description",
+          "columnName": "description",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false
+        },
+        {
+          "id": "Step.recipeId",
+          "name": "recipeId",
+          "columnName": "recipeId",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false
+        },
+        {
+          "name": "Recipe",
+          "type": "Recipe",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "StepToRecipe",
+          "relationFromFields": [
+            "recipeId"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "StepIngredient",
+          "type": "StepIngredient",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "StepIngredientToStep",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "Step_pkey",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "StepIngredient": {
+      "id": "StepIngredient",
+      "tableName": "StepIngredient",
+      "fields": [
+        {
+          "id": "StepIngredient.ingredient",
+          "name": "ingredient",
+          "columnName": "ingredient",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "StepIngredient_ingredient_seq",
+            "increment": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true
+        },
+        {
+          "id": "StepIngredient.step",
+          "name": "step",
+          "columnName": "step",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true
+        },
+        {
+          "id": "StepIngredient.number",
+          "name": "number",
+          "columnName": "number",
+          "type": "integer",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false
+        },
+        {
+          "name": "Ingredient",
+          "type": "Ingredient",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "StepIngredientToIngredient",
+          "relationFromFields": [
+            "ingredient"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "Step",
+          "type": "Step",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "StepIngredientToStep",
+          "relationFromFields": [
+            "step"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "StepIngredient_pkey",
+          "fields": [
+            "ingredient",
+            "step"
           ]
         }
       ]

@@ -5,13 +5,14 @@ import { StepDisplayer } from "../components/StepDisplayer";
 
 export function RecipeManage()
 {
-    const recipeId = useParams().recipeId;
+    const { recipeId } = useParams();
+    const parsedRecipeId = recipeId ? parseInt(recipeId) : 0;
 
     return (
         <div>
-            <h1>Recipes Manage of {recipeId}</h1>
+            <h1>Recipes Manage of {parsedRecipeId}</h1>
             <IngredientDisplayer />
-            <StepDisplayer />
+            <StepDisplayer recipeId={parsedRecipeId}/>
         </div>
     )
 }

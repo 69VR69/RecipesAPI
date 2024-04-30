@@ -5,7 +5,6 @@ info:
   version: 0.0.1
 tags:
   - name: ingredient managment
-  - name: ingredient usage
   
   
   
@@ -112,45 +111,7 @@ paths:
                   
                   
                   
-  /ingredients/{id}/add:
-    parameters:
-      - name: id
-        in: path
-        description: ingredient ID
-        required: true
-        schema:
-          type: integer
-          format: int64
-    put:
-      tags:
-        - ingredient usage
-      summary: Add an ingredient
-      responses:
-        '200':
-          description: Successful operation
-        '404':
-          description: ingredient not found
-             
-####################
-                   
-  /ingredients/{id}/remove:
-    parameters:
-      - name: id
-        in: path
-        description: ingredient ID
-        required: true
-        schema:
-          type: integer
-          format: int64
-    put:
-      tags:
-        - ingredient usage
-      summary: remove an ingredient
-      responses:
-        '200':
-          description: Successful operation
-        '404':
-          description: ingredient not found                  
+           
 ##############################################
     
 
@@ -187,7 +148,7 @@ components:
           type : string 
           example: "feculent"
         
-        saison: 
+        season: 
           type : string 
           example : "hiver"
           enum: ["hiver", "printemps", "ete", "autone"]
