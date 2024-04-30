@@ -1,4 +1,5 @@
 import { Ingredient, Season } from "../models/Ingredient";
+import { Step } from "../models/Step";
 import { ButtonRedirect } from "./Button";
 
 export function Card({ children, className }: { children: React.ReactNode, className?: string }) {
@@ -39,19 +40,21 @@ export function IngredientCard({ ingredient, nbPersons }: { ingredient: Ingredie
                 <h3 className="ingredient-name">{ingredient.name}</h3>
                 <p>{ingredient.category}</p>
                 <p>Saison : {getSeasonIcon(ingredient.season)}</p>
-                <p>Pour {nbPersons} personnes</p>
+                <p>Quantité : {nbPersons*ingredient.recipe[0].number}</p>
             </div>
         </Card>
     );
 }
 
-export function StepCard({ description, ingredients }: { description: string, ingredients: { ingredient: Ingredient, quantity: number }[] }) {
+export function StepCard({step}: { step: Step }) {
     return (
         <Card>
-            <p>{description}</p>
+            {<p>{step.description}</p>}
             <ul>
-                {ingredients.map((ingredientQuantity, index) => (
-                    <li key={index}>{ingredientQuantity.ingredient.name} : {ingredientQuantity.quantity}</li>
+                {step.ingredients && step.ingredients.map((ingredient) => (
+                    <li key={ingredient.ingredient.id}>
+                        {ingredient.ingredient.name} : {ingredient.number}
+                    </li>
                 ))}
             </ul>
         </Card>

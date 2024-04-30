@@ -13,33 +13,32 @@ model Recipe {
   id         Int                @id @default(autoincrement())
   name       String
   ingredient RecipeIngredient[]
-  step Step[]
+  step       Step[]
 }
 
 model Ingredient {
-  id       Int                @id @default(autoincrement())
-  name     String
-  category String
-  season   Int
-  seasonRelation Season @relation(fields: [season], references: [id])
-  recipe   RecipeIngredient[]
-  step   StepIngredient[]
+  id             Int                @id @default(autoincrement())
+  name           String
+  category       String
+  season         Int
+  seasonRelation Season             @relation(fields: [season], references: [id])
+  recipe         RecipeIngredient[]
+  step           StepIngredient[]
 }
 
 model Step {
-  id Int @id @default(autoincrement())
-  description String 
-  recipeId Int
-  recipe Recipe @relation(fields: [recipeId], references: [id])
-  ingredient StepIngredient[]
+  id          Int              @id @default(autoincrement())
+  description String
+  recipeId    Int
+  recipe      Recipe           @relation(fields: [recipeId], references: [id])
+  ingredient  StepIngredient[]
 }
 
-model Season{
-  id Int @id @default(autoincrement())
-  label String 
+model Season {
+  id         Int          @id @default(autoincrement())
+  label      String
   ingredient Ingredient[]
 }
-
 
 model RecipeIngredient {
   ingredient         Int
@@ -51,12 +50,11 @@ model RecipeIngredient {
   @@id([ingredient, recipe])
 }
 
-
 model StepIngredient {
   ingredient         Int
-  step             Int
+  step               Int
   number             Int
-  stepRelation     Step     @relation(fields: [step], references: [id])
+  stepRelation       Step       @relation(fields: [step], references: [id])
   ingredientRelation Ingredient @relation(fields: [ingredient], references: [id])
 
   @@id([ingredient, step])

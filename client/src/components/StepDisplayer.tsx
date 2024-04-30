@@ -21,7 +21,7 @@ export function StepDisplayer({ recipeId }: { recipeId: number }) {
             <h2>Steps</h2>
             <ul>
                 {data && data.map((step, index) => (
-                    <StepCard key={index} description={step.description} ingredients={step.ingredients} />
+                    <StepCard key={index} step={step} />
                 ))}
             </ul>
         </div>

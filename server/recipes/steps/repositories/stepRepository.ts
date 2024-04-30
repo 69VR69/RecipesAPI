@@ -4,14 +4,13 @@ import { StepWithIngredients, StepWithIngredientsWithoutId } from '../types.js';
 
 const prisma = new PrismaClient();
 
-export class StepRepository{
+export class StepRepository {
     // Create a new Step
-    public async createStep({ description, ingredient, recipeId }: StepWithIngredientsWithoutId) : Promise<StepWithIngredients>
-    {
+    public async createStep({ description, ingredient, recipeId }: StepWithIngredientsWithoutId): Promise<StepWithIngredients> {
         const newStep = await prisma.step.create({
             data: {
                 description,
-                recipeId,
+                recipeId: +recipeId,
                 ingredient: {
                     create: ingredient
                 }
@@ -25,8 +24,12 @@ export class StepRepository{
     }
 
     // Get all steps
-    public async getSteps(req: Request<StepWithIngredients>, res: Response) {
-        const steps = await prisma.step.findMany({});
+    public async getSteps(req: Request<StepWithIngredients>, res: Response, recipeId: number) {
+        const steps = await prisma.step.findMany({
+            where: {
+                recipeId: +recipeId,
+            },
+        });
         res.json(steps);
     }
 
@@ -42,20 +45,24 @@ export class StepRepository{
     }
 
     // Update an Step
-    public async updateStep(req: Request<StepWithIngredients>, res: Response) {
+    public async updateStep(req: Request<StepWithIngredients>, res: Response, rid: number) {
+        console.log("number?")
         const { id } = req.params;
-        const { description, ingredients,recipeId } = req.body;
+        const { description, ingredients } = req.body;
+        const recipeId = +rid;
         const updatedStep = await prisma.step.update({
             where: {
                 id: +id
             },
             data: {
-                description,
-                recipeId,
+                description: description,
+                recipeId: +recipeId,
                 ingredient: {
-                    deleteMany: {},
-                    create: ingredients
-                }
+                    create: ingredients,
+                },
+            },
+            include: {
+                ingredient: true
             }
         });
         res.json(updatedStep);
