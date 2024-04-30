@@ -39,7 +39,7 @@ export function IngredientCard({ ingredient, nbPersons }: { ingredient: Ingredie
                 <h3 className="ingredient-name">{ingredient.name}</h3>
                 <p>{ingredient.category}</p>
                 <p>Saison : {getSeasonIcon(ingredient.season)}</p>
-                <p>Quantité : {nbPersons*ingredient.recipe.number}</p>
+                <p>Quantité : {nbPersons*ingredient.recipe[0].number}</p>
             </div>
         </Card>
     );

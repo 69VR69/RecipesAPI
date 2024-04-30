@@ -10,9 +10,9 @@ export class Ingredient {
     name: string;
     category: string;
     season: Season;
-    recipe: IngredientQuantity;
+    recipe: IngredientQuantity[];
     
-    constructor(id: number, name: string, category: string, season: Season, recipe: IngredientQuantity) {
+    constructor(id: number, name: string, category: string, season: Season, recipe: IngredientQuantity[]) {
         this.id = id;
         this.name = name;
         this.category = category;
