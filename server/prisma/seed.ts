@@ -18,9 +18,9 @@ const main = async () => {
         ], { connect: true }
     );
 
-    await seed.Ingredient((x) => x(10), { connect: true });
-    await seed.Recipe((x) => x(10), { connect: true });
-    await seed.RecipeIngredient((x) => x(10), { connect: true });
+    await seed.Ingredient((x) => x(35), { connect: true });
+    await seed.Recipe((x) => x(5), { connect: true });
+    await seed.RecipeIngredient((x) => x(23), { connect: true });
 
     console.log("Seeding completed")
 
