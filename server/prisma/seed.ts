@@ -2,27 +2,26 @@ import { createSeedClient } from "@snaplet/seed";
 
 const main = async () => {
 
-    const seed = await createSeedClient();
+    const seed = await createSeedClient({ connect: true });
     console.log("Seeding started ")
 
     // Truncate all tables in the database
     await seed.$resetDatabase();
     console.log("Database truncated")
 
-    await seed.Season(
+    await seed.season(
         [
-            {label: "Winter"},
-            {label: "Spring"},
-            {label: "Summer"},
-            {label: "Autumn"}
-        ], { connect: true }
-    );
+            { label: "Winter" },
+            { label: "Spring" },
+            { label: "Summer" },
+            { label: "Autumn" }
+        ]);
 
-    await seed.Ingredient((x) => x(35), { connect: true });
-    await seed.Recipe((x) => x(5), { connect: true });
-    await seed.RecipeIngredient((x) => x(23), { connect: true });
-    await seed.Step((x) => x(30), { connect: true });
-    await seed.StepIngredient((x) => x(28), { connect: true });
+    await seed.ingredient((x) => x(35));
+    await seed.recipe((x) => x(5));
+    await seed.recipeIngredient((x) => x(23));
+    await seed.step((x) => x(30));
+    await seed.stepIngredient((x) => x(28));
 
     console.log("Seeding completed")
 
