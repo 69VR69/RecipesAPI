@@ -1,8 +1,7 @@
+import Joi from "joi"
+import { IngredientValidator } from "./ingredientValidator.js"
 
 /* STEPS */
-
-import Joi from "joi"
-import { IngredientValidator } from "../../../ingredients/routes/ingredientValidator.js"
 
 // Joi validatior for the step using prisma schema
 export const StepValidator = Joi.object

@@ -1,5 +1,4 @@
 {
-  "dialect": "sqlite",
   "models": {
     "Ingredient": {
       "id": "Ingredient",
@@ -472,13 +471,13 @@
           "isId": false
         },
         {
-          "name": "Ingredient",
-          "type": "Ingredient",
+          "name": "Step",
+          "type": "Step",
           "isRequired": true,
           "kind": "object",
-          "relationName": "StepIngredientToIngredient",
+          "relationName": "StepIngredientToStep",
           "relationFromFields": [
-            "ingredient"
+            "step"
           ],
           "relationToFields": [
             "id"
@@ -490,13 +489,13 @@
           "hasDefaultValue": false
         },
         {
-          "name": "Step",
-          "type": "Step",
+          "name": "Ingredient",
+          "type": "Ingredient",
           "isRequired": true,
           "kind": "object",
-          "relationName": "StepIngredientToStep",
+          "relationName": "StepIngredientToIngredient",
           "relationFromFields": [
-            "step"
+            "ingredient"
           ],
           "relationToFields": [
             "id"
