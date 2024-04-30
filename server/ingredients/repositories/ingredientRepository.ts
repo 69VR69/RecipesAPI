@@ -1,13 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
-import { Ingredients,IngredientsWithoutId } from '../types.js';
+import { Ingredients, IngredientsWithoutId } from '../types.js';
 
 const prisma = new PrismaClient();
 
-export class IngredientRepository{
+export class IngredientRepository {
     // Create a new Ingredient
-    public async createIngredient({ name, category, season }: IngredientsWithoutId) : Promise<Ingredients>
-    {
+    public async createIngredient({ name, category, season }: IngredientsWithoutId): Promise<Ingredients> {
         const newIngredient = await prisma.ingredient.create({
             data: {
                 name,
@@ -24,14 +23,19 @@ export class IngredientRepository{
         const recipeId = parseInt(req.query.recipeId as string | undefined);
 
         const ingredients = await prisma.ingredient
-        .findMany({include: {recipe : true}})
-        .then((ingredients) => {
-            if(recipeId){
-                return ingredients
-                .filter((ingredient) => ingredient.recipe.some((recipe) => recipe.recipe === recipeId));
-            }
-            return ingredients;
-        });
+            .findMany({ include: { recipe: true } })
+            .then((ingredients) => {
+                if (recipeId) {
+                    return ingredients
+                        .filter((ingredient) => ingredient.recipe.some((recipe) => recipe.recipe === recipeId))
+                        .map((ingredient) => {
+                            ingredient.recipe = ingredient.recipe.filter((recipe) => recipe.recipe === recipeId);
+                            return ingredient;
+                        });
+                }
+
+                return ingredients;
+            });
 
         res.json(ingredients);
     }
