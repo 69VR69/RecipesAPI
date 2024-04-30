@@ -8,7 +8,11 @@ const recipeService = new RecipeService();
 
 // GET /api/recipes - Get all recipes
 router.get('/', (req, resp) => {
-    recipeService.getRecipes(req, resp);
+    recipeService.getRecipes(req, resp)
+    .then((recipes) => {
+        resp.status(200).json(recipes);
+    }
+    )
 });
 
 // POST /api/recipes - Create a new recipe
