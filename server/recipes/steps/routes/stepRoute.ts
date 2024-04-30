@@ -1,6 +1,6 @@
 import express from 'express';
 import { StepService } from '../services/stepService.js';
-import { StepIdValidator, StepValidator } from './stepValidator.js';
+import { StepIdValidator, StepValidator } from '../../../prisma/validators/stepValidator.js';
 
 const router = express.Router();
 const stepService = new StepService();
